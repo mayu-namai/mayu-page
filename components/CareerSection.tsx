@@ -17,64 +17,77 @@ const iconMap: Record<CareerItem["type"], React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
     </svg>
   ),
+  scholarship: (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  ),
 };
 
 const colorMap: Record<CareerItem["type"], string> = {
-  education: "bg-blue-100 text-blue-600",
-  work: "bg-slate-100 text-slate-600",
-  award: "bg-yellow-100 text-yellow-600",
+  education:   "bg-blue-100 text-blue-600",
+  work:        "bg-slate-100 text-slate-600",
+  award:       "bg-yellow-100 text-yellow-600",
+  scholarship: "bg-emerald-100 text-emerald-600",
 };
 
 const sections: { type: CareerItem["type"]; label: string }[] = [
-  { type: "education", label: "学歴" },
-  { type: "work", label: "職歴・奨学金" },
-  { type: "award", label: "受賞歴" },
+  { type: "education",   label: "学歴" },
+  { type: "award",       label: "受賞歴" },
+  { type: "scholarship", label: "奨学金" },
 ];
+
+function Timeline({ type }: { type: CareerItem["type"] }) {
+  const items = careers.filter((c) => c.type === type);
+  if (items.length === 0) return null;
+  return (
+    <ol className="relative border-l border-slate-200">
+      {items.map((item, i) => (
+        <li key={i} className="mb-6 ml-6">
+          <span
+            className={`absolute -left-3 flex items-center justify-center w-6 h-6 rounded-full ${colorMap[type]}`}
+          >
+            {iconMap[type]}
+          </span>
+          <p className="text-xs text-slate-400 mb-0.5">{item.period}</p>
+          <p className="font-medium text-slate-800 leading-snug">{item.title}</p>
+          <p className="text-sm text-slate-500">{item.organization}</p>
+          {item.description && (
+            <p className="text-xs text-slate-400 mt-0.5">{item.description}</p>
+          )}
+        </li>
+      ))}
+    </ol>
+  );
+}
 
 export default function CareerSection() {
   return (
     <section id="career" className="py-20">
       <div className="max-w-5xl mx-auto px-6">
         <h2 className="text-3xl font-bold text-slate-900 mb-2">CV</h2>
-        <p className="text-slate-500 mb-10 text-sm">経歴・受賞歴</p>
+        <p className="text-slate-500 mb-10 text-sm">経歴・受賞・奨学金</p>
 
-        <div className="grid md:grid-cols-3 gap-10">
-          {sections.map(({ type, label }) => {
-            const items = careers.filter((c) => c.type === type);
-            if (items.length === 0) return null;
-            return (
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* 学歴：左カラム */}
+          <div>
+            <h3 className="font-semibold text-slate-700 mb-5 text-sm uppercase tracking-wider">
+              学歴
+            </h3>
+            <Timeline type="education" />
+          </div>
+
+          {/* 受賞 + 奨学金：右カラムに縦積み */}
+          <div className="space-y-10">
+            {sections.slice(1).map(({ type, label }) => (
               <div key={type}>
                 <h3 className="font-semibold text-slate-700 mb-5 text-sm uppercase tracking-wider">
                   {label}
                 </h3>
-                <ol className="relative border-l border-slate-200">
-                  {items.map((item, i) => (
-                    <li key={i} className="mb-6 ml-6">
-                      <span
-                        className={`absolute -left-3 flex items-center justify-center w-6 h-6 rounded-full ${colorMap[type]}`}
-                      >
-                        {iconMap[type]}
-                      </span>
-                      <p className="text-xs text-slate-400 mb-0.5">
-                        {item.period}
-                      </p>
-                      <p className="font-medium text-slate-800 leading-snug">
-                        {item.title}
-                      </p>
-                      <p className="text-sm text-slate-500">
-                        {item.organization}
-                      </p>
-                      {item.description && (
-                        <p className="text-xs text-slate-400 mt-0.5">
-                          {item.description}
-                        </p>
-                      )}
-                    </li>
-                  ))}
-                </ol>
+                <Timeline type={type} />
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>
