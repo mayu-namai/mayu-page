@@ -1,6 +1,12 @@
 import { publications, Publication } from "@/lib/data";
 
-// 著者名のうち生井を太字にする
+const typeBadge: Record<Publication["type"], { label: string; color: string }> = {
+  journal:    { label: "Journal",    color: "bg-emerald-100 text-emerald-700" },
+  conference: { label: "Conference", color: "bg-blue-100 text-blue-700" },
+  workshop:   { label: "Workshop",   color: "bg-purple-100 text-purple-700" },
+  other:      { label: "Other",      color: "bg-slate-100 text-slate-600" },
+};
+
 function AuthorList({ authors }: { authors: string[] }) {
   return (
     <span className="text-sm text-slate-600">
@@ -18,19 +24,22 @@ function AuthorList({ authors }: { authors: string[] }) {
   );
 }
 
-function PublicationItem({
-  pub,
-  index,
-}: {
-  pub: Publication;
-  index: number;
-}) {
+function PublicationCard({ pub }: { pub: Publication }) {
+  const badge = typeBadge[pub.type];
   return (
-    <li className="flex gap-3 py-4 border-b border-slate-100 last:border-0">
-      <span className="text-slate-300 text-sm font-mono w-5 shrink-0 pt-0.5">
-        {index}.
-      </span>
+    <li className="flex gap-4 py-5 border-b border-slate-100 last:border-0">
       <div className="flex-1 min-w-0">
+        <div className="flex flex-wrap items-center gap-2 mb-1">
+          <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${badge.color}`}>
+            {badge.label}
+          </span>
+          <span className="text-xs text-slate-400">{pub.year}</span>
+          {pub.note && (
+            <span className="text-xs font-medium text-orange-600 bg-orange-50 px-2 py-0.5 rounded-full">
+              {pub.note}
+            </span>
+          )}
+        </div>
         <p className="font-medium text-slate-800 leading-snug mb-1">
           {pub.title}
         </p>
@@ -41,12 +50,7 @@ function PublicationItem({
         {pub.detail && (
           <p className="text-xs text-slate-400">{pub.detail}</p>
         )}
-        <div className="flex flex-wrap gap-3 mt-2">
-          {pub.note && (
-            <span className="text-xs font-medium text-orange-600 bg-orange-50 px-2 py-0.5 rounded-full">
-              {pub.note}
-            </span>
-          )}
+        <div className="flex gap-3 mt-2">
           {pub.doi && (
             <a href={pub.doi} target="_blank" rel="noopener noreferrer"
               className="text-xs text-blue-600 hover:underline">DOI</a>
@@ -69,43 +73,19 @@ function PublicationItem({
   );
 }
 
-type Group = {
-  type: Publication["type"];
-  label: string;
-};
-
-const groups: Group[] = [
-  { type: "journal",    label: "学術誌論文" },
-  { type: "conference", label: "発表（査読あり）" },
-  { type: "workshop",   label: "発表（査読なし）" },
-  { type: "other",      label: "その他" },
-];
-
 export default function PublicationsSection() {
+  const sorted = [...publications].sort((a, b) => b.year - a.year);
+
   return (
     <section id="publications" className="py-20 bg-white">
       <div className="max-w-5xl mx-auto px-6">
         <h2 className="text-3xl font-bold text-slate-900 mb-2">Publications</h2>
-        <p className="text-slate-500 mb-10 text-sm">業績リスト</p>
-
-        <div className="space-y-12">
-          {groups.map(({ type, label }) => {
-            const items = publications.filter((p) => p.type === type);
-            if (items.length === 0) return null;
-            return (
-              <div key={type}>
-                <h3 className="text-base font-semibold text-slate-700 mb-4 pb-2 border-b border-slate-200">
-                  {label}
-                </h3>
-                <ul>
-                  {items.map((pub, i) => (
-                    <PublicationItem key={i} pub={pub} index={i + 1} />
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
-        </div>
+        <p className="text-slate-500 mb-8 text-sm">業績リスト</p>
+        <ul>
+          {sorted.map((pub, i) => (
+            <PublicationCard key={i} pub={pub} />
+          ))}
+        </ul>
       </div>
     </section>
   );
