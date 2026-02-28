@@ -23,15 +23,11 @@ export default function HeroSection() {
         </h1>
         <p className="text-lg text-slate-500 mb-3">{profile.nameEn}</p>
 
-        {/* 所属・研究テーマ */}
+        {/* 所属・連絡先 */}
         <dl className="text-sm text-slate-600 space-y-1 mb-4">
           <div className="flex gap-2">
             <dt className="text-slate-400 shrink-0">所属</dt>
             <dd>{profile.affiliation}　{profile.lab}</dd>
-          </div>
-          <div className="flex gap-2">
-            <dt className="text-slate-400 shrink-0">研究</dt>
-            <dd>{profile.researchTheme}</dd>
           </div>
           <div className="flex gap-2">
             <dt className="text-slate-400 shrink-0">連絡</dt>
@@ -42,11 +38,6 @@ export default function HeroSection() {
             </dd>
           </div>
         </dl>
-
-        {/* Bio */}
-        <p className="text-slate-700 leading-relaxed mb-5 max-w-xl italic">
-          {profile.bio}
-        </p>
 
         {/* キーワード */}
         <div className="flex flex-wrap gap-2 mb-5">
