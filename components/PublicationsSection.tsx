@@ -1,10 +1,10 @@
 import { publications, Publication } from "@/lib/data";
 
 const typeBadge: Record<Publication["type"], { label: string; color: string }> = {
-  journal:    { label: "Journal",    color: "bg-emerald-100 text-emerald-700" },
-  conference: { label: "Conference", color: "bg-blue-100 text-blue-700" },
-  workshop:   { label: "Workshop",   color: "bg-purple-100 text-purple-700" },
-  other:      { label: "Other",      color: "bg-slate-100 text-slate-600" },
+  journal:    { label: "Journal",      color: "bg-emerald-100 text-emerald-700" },
+  conference: { label: "Presentation", color: "bg-blue-100 text-blue-700" },
+  workshop:   { label: "Presentation", color: "bg-blue-100 text-blue-700" },
+  other:      { label: "Other",        color: "bg-slate-100 text-slate-600" },
 };
 
 function AuthorList({ authors }: { authors: string[] }) {
@@ -34,6 +34,11 @@ function PublicationCard({ pub }: { pub: Publication }) {
             {badge.label}
           </span>
           <span className="text-xs text-slate-400">{pub.year}</span>
+          {pub.type === "conference" && (
+            <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
+              査読あり
+            </span>
+          )}
           {pub.note && (
             <span className="text-xs font-medium text-orange-600 bg-orange-50 px-2 py-0.5 rounded-full">
               {pub.note}
