@@ -123,8 +123,8 @@ export const researches: Research[] = [
   {
     title: "動画からのヴィネットイラスト生成",
     description:
-      "動画コンテンツを入力として、自動的にヴィネットイラストを生成するシステムの研究です。半自動システム VigNet から、完全自動システム VigNette へと発展させ、視覚的に魅力的なイラスト表現の自動生成を目指しています。",
-    keywords: ["Vignette Illustration", "Video Processing", "Computer Graphics", "Visualization"],
+      "アニメ動画を入力として、半自動または自動的にヴィネットイラストを生成する研究です。ユーザの嗜好を反映したイラストを半自動的に生成すると同時に、システムが自動的に動画を要約し、世界観を反映するイラストを生成することもできます。",
+    keywords: ["Video Summarization", "Media Conversion", "Machine Learning", "World Perspective Visualization"],
   },
 ];
 
