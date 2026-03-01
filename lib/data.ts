@@ -56,7 +56,7 @@ export const publications: Publication[] = [
     venue: "Visual Computing 2023 予稿集, pp. 2:1–2:4",
     year: 2023,
     type: "conference",
-    detail: "芝浦工業大学豊洲キャンパス, 2023年9月18日（ポスタ）",
+    detail: "芝浦工業大学豊洲キャンパス, 2023年9月18日",
   },
   // ── 発表（査読なし）─────────────────────────
   {
@@ -83,7 +83,7 @@ export const publications: Publication[] = [
     venue: "VCワークショップ 2022 in 諏訪湖（講演番号 16）; 画像電子学会誌, Vol. 52, No. 1, pp. 244–253, 2023年1月",
     year: 2022,
     type: "workshop",
-    detail: "長野, 2022年11月25日–26日",
+    detail: "2022年11月25日–26日",
   },
   // ── その他 ──────────────────────────────────
   {
@@ -92,7 +92,7 @@ export const publications: Publication[] = [
     venue: "慶應テクノモール2023, 東京国際フォーラム",
     year: 2023,
     type: "other",
-    detail: "2023年12月15日（ポスタ）",
+    detail: "2023年12月15日",
   },
   {
     title: "ヴィネットイラスト自動生成に向けたプロトタイピング",
@@ -132,14 +132,16 @@ export const careers: CareerItem[] = [
   // ── 学歴（新しい順）────────────────────────
   {
     period: "2025年10月 – 現在",
-    title: "大学院理工学研究科 博士課程",
+    title: "理工学研究科 博士課程",
     organization: "慶應義塾大学大学院",
+    description: "鳴海研究室",
     type: "education",
   },
   {
     period: "2023年4月 – 2025年3月",
-    title: "大学院理工学研究科 修士課程",
+    title: "理工学研究科 修士課程",
     organization: "慶應義塾大学大学院",
+    description: "藤代研究室",
     type: "education",
   },
   {

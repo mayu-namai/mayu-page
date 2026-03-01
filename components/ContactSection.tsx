@@ -8,9 +8,6 @@ export default function ContactSection() {
         <p className="text-slate-500 mb-8 text-sm">お問い合わせ</p>
 
         <div className="bg-slate-50 rounded-2xl p-8 max-w-lg">
-          <p className="text-slate-600 mb-6 leading-relaxed text-sm">
-            研究に関するご質問や共同研究のご提案など、お気軽にご連絡ください。
-          </p>
           <div className="space-y-3">
             <div className="flex items-center gap-3">
               <svg
