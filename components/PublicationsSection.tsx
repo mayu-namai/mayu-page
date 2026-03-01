@@ -1,10 +1,15 @@
 import { publications, Publication } from "@/lib/data";
 
 const typeBadge: Record<Publication["type"], { label: string; color: string }> = {
-  journal:    { label: "Journal",      color: "bg-emerald-100 text-emerald-700" },
-  conference: { label: "Presentation", color: "bg-blue-100 text-blue-700" },
-  workshop:   { label: "Presentation", color: "bg-blue-100 text-blue-700" },
-  other:      { label: "Other",        color: "bg-slate-100 text-slate-600" },
+  journal:    { label: "Journal",    color: "bg-emerald-100 text-emerald-700" },
+  conference: { label: "Conference", color: "bg-blue-100 text-blue-700" },
+  workshop:   { label: "Conference", color: "bg-blue-100 text-blue-700" },
+  other:      { label: "Other",      color: "bg-slate-100 text-slate-600" },
+};
+
+const reviewBadge: Partial<Record<Publication["type"], { label: string; color: string }>> = {
+  conference: { label: "査読あり", color: "bg-blue-50 text-blue-600" },
+  workshop:   { label: "査読なし", color: "bg-slate-50 text-slate-500" },
 };
 
 function AuthorList({ authors }: { authors: string[] }) {
@@ -26,19 +31,24 @@ function AuthorList({ authors }: { authors: string[] }) {
 
 function PublicationCard({ pub }: { pub: Publication }) {
   const badge = typeBadge[pub.type];
+  const review = reviewBadge[pub.type];
   return (
     <li className="flex gap-4 py-5 border-b border-slate-100 last:border-0">
       <div className="flex-1 min-w-0">
         <div className="flex flex-wrap items-center gap-2 mb-1">
+          {/* 1. 種別バッジ */}
           <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${badge.color}`}>
             {badge.label}
           </span>
+          {/* 2. 年 */}
           <span className="text-xs text-slate-400">{pub.year}</span>
-          {pub.type === "conference" && (
-            <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
-              査読あり
+          {/* 3. 査読あり/なし */}
+          {review && (
+            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${review.color}`}>
+              {review.label}
             </span>
           )}
+          {/* 4. 受賞など */}
           {pub.note && (
             <span className="text-xs font-medium text-orange-600 bg-orange-50 px-2 py-0.5 rounded-full">
               {pub.note}
