@@ -75,19 +75,25 @@ export default function CareerSection() {
         <p className="text-slate-500 mb-10 text-sm">経歴・受賞・奨学金</p>
 
         <div className="grid md:grid-cols-2 gap-10">
-          {/* 学歴：左カラム */}
-          <div>
-            <h3 className="font-semibold text-slate-700 mb-5 text-sm uppercase tracking-wider">
-              学歴
-            </h3>
-            <Timeline type="education" />
-          </div>
-
-          {/* 職歴・受賞・奨学金：右カラムに縦積み */}
+          {/* 学歴・研究活動・職歴：左カラムに縦積み */}
           <div className="space-y-10">
             {[
-              { type: "work"        as const, label: "職歴" },
-              { type: "research"    as const, label: "研究活動" },
+              { type: "education" as const, label: "学歴" },
+              { type: "research"  as const, label: "研究活動" },
+              { type: "work"      as const, label: "職歴" },
+            ].map(({ type, label }) => (
+              <div key={type}>
+                <h3 className="font-semibold text-slate-700 mb-5 text-sm uppercase tracking-wider">
+                  {label}
+                </h3>
+                <Timeline type={type} />
+              </div>
+            ))}
+          </div>
+
+          {/* 受賞・奨学金：右カラムに縦積み */}
+          <div className="space-y-10">
+            {[
               { type: "award"       as const, label: "受賞歴" },
               { type: "scholarship" as const, label: "奨学金" },
             ].map(({ type, label }) => (
