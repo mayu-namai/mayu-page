@@ -12,6 +12,11 @@ const iconMap: Record<CareerItem["type"], React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     </svg>
   ),
+  research: (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  ),
   award: (
     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -27,6 +32,7 @@ const iconMap: Record<CareerItem["type"], React.ReactNode> = {
 const colorMap: Record<CareerItem["type"], string> = {
   education:   "bg-blue-100 text-blue-600",
   work:        "bg-slate-100 text-slate-600",
+  research:    "bg-purple-100 text-purple-600",
   award:       "bg-yellow-100 text-yellow-600",
   scholarship: "bg-emerald-100 text-emerald-600",
 };
@@ -77,9 +83,14 @@ export default function CareerSection() {
             <Timeline type="education" />
           </div>
 
-          {/* 受賞 + 奨学金：右カラムに縦積み */}
+          {/* 職歴・受賞・奨学金：右カラムに縦積み */}
           <div className="space-y-10">
-            {sections.slice(1).map(({ type, label }) => (
+            {[
+              { type: "work"        as const, label: "職歴" },
+              { type: "research"    as const, label: "研究活動" },
+              { type: "award"       as const, label: "受賞歴" },
+              { type: "scholarship" as const, label: "奨学金" },
+            ].map(({ type, label }) => (
               <div key={type}>
                 <h3 className="font-semibold text-slate-700 mb-5 text-sm uppercase tracking-wider">
                   {label}

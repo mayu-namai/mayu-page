@@ -87,14 +87,6 @@ export const publications: Publication[] = [
   },
   // ── その他 ──────────────────────────────────
   {
-    title: "University of California, Davis, Kwan-Liu Ma 教授研究室における短期研究滞在",
-    authors: ["生井 麻結"],
-    venue: "Multimedia 分野における国際共同研究（JST AdCORP JPMJKB2302 / ASPIRE JPMJAP2401 支援）",
-    year: 2024,
-    type: "other",
-    detail: "2024年10月1日–12月22日",
-  },
-  {
     title: "ビジュアルインテリジェンス：AI駆動型グラフィックスの世界（2）VigNet：動画からのヴィネットイラスト半自動生成",
     authors: ["藤代 一成", "生井 麻結"],
     venue: "慶應テクノモール2023, 東京国際フォーラム",
@@ -123,7 +115,7 @@ export const researches: Research[] = [
   {
     title: "動画からのヴィネットイラスト生成",
     description:
-      "アニメ動画を入力として、半自動または自動的にヴィネットイラストを生成する研究です。ユーザの嗜好を反映したイラストを半自動的に生成すると同時に、システムが自動的に動画を要約し、世界観を反映するイラストを生成することもできます。",
+      "アニメ動画を入力として，動画の内容を要約しつつ世界観を反映するヴィネットイラストを生成します．半自動生成モードでは，ユーザの嗜好を反映したイラストを半自動的に生成でき，自動生成モードではAIが自動的にイラストを生成します．",
     keywords: ["Video Summarization", "Media Conversion", "Machine Learning", "World Perspective Visualization"],
   },
 ];
@@ -133,58 +125,49 @@ export type CareerItem = {
   title: string;
   organization: string;
   description?: string;
-  type: "education" | "work" | "award" | "scholarship";
+  type: "education" | "work" | "research" | "award" | "scholarship";
 };
 
 export const careers: CareerItem[] = [
   // ── 学歴（新しい順）────────────────────────
   {
     period: "2025年10月 – 現在",
-    title: "大学院理工学研究科 博士課程 入学",
-    organization: "慶應義塾大学",
-    type: "education",
-  },
-  {
-    period: "2025年3月",
-    title: "大学院理工学研究科 修士課程 修了",
-    organization: "慶應義塾大学",
-    type: "education",
-  },
-  {
-    period: "2024年10月 – 12月",
-    title: "Kwan-Liu Ma 研究室にて留学",
-    organization: "University of California, Davis",
+    title: "大学院理工学研究科 博士課程",
+    organization: "慶應義塾大学大学院",
     type: "education",
   },
   {
     period: "2023年4月 – 2025年3月",
     title: "大学院理工学研究科 修士課程",
-    organization: "慶應義塾大学",
-    type: "education",
-  },
-  {
-    period: "2023年3月",
-    title: "理工学部 情報工学科 卒業",
-    organization: "慶應義塾大学",
-    type: "education",
-  },
-  {
-    period: "2020年4月",
-    title: "理工学部 情報工学科 進学",
-    organization: "慶應義塾大学",
+    organization: "慶應義塾大学大学院",
     type: "education",
   },
   {
     period: "2019年4月 – 2023年3月",
-    title: "理工学部 学門5 入学",
+    title: "理工学部 情報工学科",
     organization: "慶應義塾大学",
     type: "education",
   },
   {
     period: "2016年4月 – 2019年3月",
-    title: "慶應義塾女子高校",
-    organization: "慶應義塾女子高等学校",
+    title: "慶應義塾女子高等学校",
+    organization: "",
     type: "education",
+  },
+  // ── 職歴（新しい順）────────────────────────
+  {
+    period: "2025年4月 – 現在",
+    title: "AI開発業務に従事",
+    organization: "民間企業",
+    type: "work",
+  },
+  // ── 研究活動（新しい順）──────────────────────
+  {
+    period: "2024年10月 – 12月",
+    title: "短期研究滞在",
+    organization: "University of California, Davis",
+    description: "Kwan-Liu Ma研究室にて短期研究滞在（JST支援）",
+    type: "research",
   },
   // ── 受賞（新しい順）────────────────────────
   {
