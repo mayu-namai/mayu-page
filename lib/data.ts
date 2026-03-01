@@ -20,8 +20,9 @@ export const profile = {
 export type Publication = {
   title: string;
   authors: string[];
-  venue: string;       // 掲載先（学術誌・論文集）
-  presentedAt?: string; // 発表情報（会議名・場所・日程）
+  venue: string;        // 掲載先（学術誌・論文集）または発表会場
+  conference?: string;  // 発表会議名・場所（掲載先とは別に発表がある場合）
+  date?: string;        // 発表日
   year: number;
   // journal: 学術誌論文 / conference: 発表（査読あり）/ workshop: 発表（査読なし）/ other: その他
   type: "journal" | "conference" | "workshop" | "other";
@@ -30,7 +31,6 @@ export type Publication = {
   pdf?: string;
   link?: string;
   note?: string;
-  detail?: string; // その他種別の詳細情報
 };
 
 export const publications: Publication[] = [
@@ -47,7 +47,8 @@ export const publications: Publication[] = [
     title: "VigNet: Semiautomatic generation of vignette illustrations from video",
     authors: ["Mayu Namai", "Issei Fujishiro"],
     venue: "IIEEJ Transactions on Image Electronics and Visual Computing, Vol. 12, No. 1, pp. 15–22",
-    presentedAt: "The 8th IIEEJ International Conference on Image Electronics and Visual Computing (IEVC 2024), National Cheng Kung University, Tainan City, Taiwan, 2024年3月12日",
+    conference: "The 8th IIEEJ International Conference on Image Electronics and Visual Computing (IEVC 2024), National Cheng Kung University, Tainan City, Taiwan",
+    date: "2024年3月12日",
     year: 2024,
     type: "journal",
   },
@@ -56,7 +57,8 @@ export const publications: Publication[] = [
     title: "動画からのヴィネットイラスト半自動生成のプロトタイピング",
     authors: ["生井 麻結", "藤代 一成"],
     venue: "Visual Computing 2023 予稿集, pp. 2:1–2:4",
-    presentedAt: "Visual Computing 2023, 芝浦工業大学豊洲キャンパス, 2023年9月18日",
+    conference: "Visual Computing 2023, 芝浦工業大学豊洲キャンパス",
+    date: "2023年9月18日",
     year: 2023,
     type: "conference",
   },
@@ -65,7 +67,8 @@ export const publications: Publication[] = [
     title: "動画からのヴィネットイラスト半自動生成～ビューアの嗜好の反映～",
     authors: ["生井 麻結", "藤代 一成"],
     venue: "映像情報メディア学会技術報告, Vol. 47, No. 9, pp. 301–304, AIT2023-120",
-    presentedAt: "映像表現・芸術科学フォーラム 2023, 東京工芸大学中野キャンパス（ハイブリッド開催）, 2023年3月6日",
+    conference: "映像表現・芸術科学フォーラム 2023, 東京工芸大学中野キャンパス（ハイブリッド開催）",
+    date: "2023年3月6日",
     year: 2023,
     type: "workshop",
     note: "優秀ポスタ賞・企業賞（ヴォクセル）受賞",
@@ -74,7 +77,8 @@ export const publications: Publication[] = [
     title: "動画からのヴィネットイラスト半自動生成",
     authors: ["生井 麻結", "藤代 一成"],
     venue: "情報処理学会第85回全国大会講演論文集（2）, pp. 933–934（6X-03）",
-    presentedAt: "情報処理学会第85回全国大会, 電気通信大学（ハイブリッド開催）, 2023年3月4日",
+    conference: "情報処理学会第85回全国大会, 電気通信大学（ハイブリッド開催）",
+    date: "2023年3月4日",
     year: 2023,
     type: "workshop",
     note: "学生奨励賞受賞",
@@ -83,26 +87,27 @@ export const publications: Publication[] = [
     title: "ヴィネットイラスト自動生成に向けたプロトタイピング",
     authors: ["生井 麻結", "藤代 一成"],
     venue: "画像電子学会誌, Vol. 52, No. 1, pp. 244–253, 2023年1月",
-    presentedAt: "VCワークショップ 2022 in 諏訪湖（講演番号 16）, 2022年11月25日–26日",
+    conference: "VCワークショップ 2022 in 諏訪湖（講演番号 16）",
+    date: "2022年11月25日–26日",
     year: 2022,
-    type: "workshop",
+    type: "other",
   },
   // ── その他 ──────────────────────────────────
   {
     title: "ビジュアルインテリジェンス：AI駆動型グラフィックスの世界（2）VigNet：動画からのヴィネットイラスト半自動生成",
     authors: ["藤代 一成", "生井 麻結"],
     venue: "慶應テクノモール2023, 東京国際フォーラム",
+    date: "2023年12月15日（ポスタ）",
     year: 2023,
     type: "other",
-    detail: "2023年12月15日",
   },
   {
     title: "ヴィネットイラスト自動生成に向けたプロトタイピング",
     authors: ["生井 麻結", "藤代 一成"],
-    venue: "情報可視化合宿 ポスタ発表, 東京工業大学",
+    venue: "情報可視化合宿，東京工業大学，ポスタ発表",
+    date: "2022年9月24–25日",
     year: 2022,
     type: "other",
-    detail: "2022年9月24–25日",
   },
 ];
 
@@ -134,22 +139,22 @@ export const careers: CareerItem[] = [
   // ── 学歴（新しい順）────────────────────────
   {
     period: "2025年10月 – 現在",
-    title: "理工学研究科 博士課程",
-    organization: "慶應義塾大学大学院",
+    title: "慶應義塾大学大学院 理工学研究科 博士課程",
+    organization: "",
     description: "鳴海研究室",
     type: "education",
   },
   {
     period: "2023年4月 – 2025年3月",
-    title: "理工学研究科 修士課程",
-    organization: "慶應義塾大学大学院",
+    title: "慶應義塾大学大学院 理工学研究科 修士課程",
+    organization: "",
     description: "藤代研究室",
     type: "education",
   },
   {
     period: "2019年4月 – 2023年3月",
-    title: "理工学部 情報工学科",
-    organization: "慶應義塾大学",
+    title: "慶應義塾大学 理工学部 情報工学科",
+    organization: "",
     type: "education",
   },
   {
@@ -161,16 +166,15 @@ export const careers: CareerItem[] = [
   // ── 職歴（新しい順）────────────────────────
   {
     period: "2025年4月 – 現在",
-    title: "AI開発業務に従事",
+    title: "AIエージェント開発に従事",
     organization: "民間企業",
     type: "work",
   },
   // ── 研究活動（新しい順）──────────────────────
   {
     period: "2024年10月 – 12月",
-    title: "短期研究滞在",
-    organization: "University of California, Davis",
-    description: "Kwan-Liu Ma研究室にて短期研究滞在（JST支援）",
+    title: "JST支援による短期研究滞在",
+    organization: "University of California, Davis, Kwan-Liu Ma研究室",
     type: "research",
   },
   // ── 受賞（新しい順）────────────────────────

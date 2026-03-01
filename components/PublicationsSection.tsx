@@ -61,23 +61,15 @@ function PublicationCard({ pub }: { pub: Publication }) {
         <p className="mb-1">
           <AuthorList authors={pub.authors} />
         </p>
-        {pub.presentedAt ? (
-          <div className="text-sm text-slate-500 space-y-0.5">
-            <p>
-              <span className="text-xs text-slate-400 mr-1">発表：</span>
-              {pub.presentedAt}
-            </p>
-            <p>
-              <span className="text-xs text-slate-400 mr-1">掲載：</span>
-              {pub.venue}
-            </p>
-          </div>
-        ) : (
+        <div className="space-y-0.5">
           <p className="text-sm text-slate-500">{pub.venue}</p>
-        )}
-        {pub.detail && (
-          <p className="text-xs text-slate-400 mt-0.5">{pub.detail}</p>
-        )}
+          {pub.conference && (
+            <p className="text-sm text-slate-400">{pub.conference}</p>
+          )}
+          {pub.date && (
+            <p className="text-xs text-slate-400">{pub.date}</p>
+          )}
+        </div>
         <div className="flex gap-3 mt-2">
           {pub.doi && (
             <a href={pub.doi} target="_blank" rel="noopener noreferrer"
