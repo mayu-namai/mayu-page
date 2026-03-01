@@ -64,7 +64,7 @@ function PublicationCard({ pub }: { pub: Publication }) {
         <div className="space-y-0.5">
           <p className="text-sm text-slate-500">{pub.venue}</p>
           {pub.conference && (
-            <p className="text-sm text-slate-400">{pub.conference}</p>
+            <p className="text-sm text-slate-500">{pub.conference}</p>
           )}
           {pub.date && (
             <p className="text-xs text-slate-400">{pub.date}</p>
