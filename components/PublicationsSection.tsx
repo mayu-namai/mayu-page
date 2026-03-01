@@ -64,10 +64,12 @@ function PublicationCard({ pub }: { pub: Publication }) {
         <div className="space-y-0.5">
           <p className="text-sm text-slate-500">{pub.venue}</p>
           {pub.conference && (
-            <p className="text-sm text-slate-500">{pub.conference}</p>
+            <p className="text-sm text-slate-500">
+              {pub.conference}{pub.date && `，${pub.date}`}
+            </p>
           )}
-          {pub.date && (
-            <p className="text-xs text-slate-400">{pub.date}</p>
+          {!pub.conference && pub.date && (
+            <p className="text-sm text-slate-500">{pub.date}</p>
           )}
         </div>
         <div className="flex gap-3 mt-2">
