@@ -20,7 +20,8 @@ export const profile = {
 export type Publication = {
   title: string;
   authors: string[];
-  venue: string;
+  venue: string;       // 掲載先（学術誌・論文集）
+  presentedAt?: string; // 発表情報（会議名・場所・日程）
   year: number;
   // journal: 学術誌論文 / conference: 発表（査読あり）/ workshop: 発表（査読なし）/ other: その他
   type: "journal" | "conference" | "workshop" | "other";
@@ -29,7 +30,7 @@ export type Publication = {
   pdf?: string;
   link?: string;
   note?: string;
-  detail?: string; // 詳細情報（開催場所・発表形式など）
+  detail?: string; // その他種別の詳細情報
 };
 
 export const publications: Publication[] = [
@@ -46,6 +47,7 @@ export const publications: Publication[] = [
     title: "VigNet: Semiautomatic generation of vignette illustrations from video",
     authors: ["Mayu Namai", "Issei Fujishiro"],
     venue: "IIEEJ Transactions on Image Electronics and Visual Computing, Vol. 12, No. 1, pp. 15–22",
+    presentedAt: "The 8th IIEEJ International Conference on Image Electronics and Visual Computing (IEVC 2024), National Cheng Kung University, Tainan City, Taiwan, 2024年3月12日",
     year: 2024,
     type: "journal",
   },
@@ -54,36 +56,36 @@ export const publications: Publication[] = [
     title: "動画からのヴィネットイラスト半自動生成のプロトタイピング",
     authors: ["生井 麻結", "藤代 一成"],
     venue: "Visual Computing 2023 予稿集, pp. 2:1–2:4",
+    presentedAt: "Visual Computing 2023, 芝浦工業大学豊洲キャンパス, 2023年9月18日",
     year: 2023,
     type: "conference",
-    detail: "芝浦工業大学豊洲キャンパス, 2023年9月18日",
   },
   // ── 発表（査読なし）─────────────────────────
   {
     title: "動画からのヴィネットイラスト半自動生成～ビューアの嗜好の反映～",
     authors: ["生井 麻結", "藤代 一成"],
-    venue: "映像表現・芸術科学フォーラム 2023（映像情報メディア学会技術報告, Vol. 47, No. 9, pp. 301–304, AIT2023-120）",
+    venue: "映像情報メディア学会技術報告, Vol. 47, No. 9, pp. 301–304, AIT2023-120",
+    presentedAt: "映像表現・芸術科学フォーラム 2023, 東京工芸大学中野キャンパス（ハイブリッド開催）, 2023年3月6日",
     year: 2023,
     type: "workshop",
-    detail: "東京工芸大学中野キャンパス（ハイブリッド開催）, 2023年3月6日",
     note: "優秀ポスタ賞・企業賞（ヴォクセル）受賞",
   },
   {
     title: "動画からのヴィネットイラスト半自動生成",
     authors: ["生井 麻結", "藤代 一成"],
     venue: "情報処理学会第85回全国大会講演論文集（2）, pp. 933–934（6X-03）",
+    presentedAt: "情報処理学会第85回全国大会, 電気通信大学（ハイブリッド開催）, 2023年3月4日",
     year: 2023,
     type: "workshop",
-    detail: "電気通信大学（ハイブリッド開催）, 2023年3月4日",
     note: "学生奨励賞受賞",
   },
   {
     title: "ヴィネットイラスト自動生成に向けたプロトタイピング",
     authors: ["生井 麻結", "藤代 一成"],
-    venue: "VCワークショップ 2022 in 諏訪湖（講演番号 16）; 画像電子学会誌, Vol. 52, No. 1, pp. 244–253, 2023年1月",
+    venue: "画像電子学会誌, Vol. 52, No. 1, pp. 244–253, 2023年1月",
+    presentedAt: "VCワークショップ 2022 in 諏訪湖（講演番号 16）, 2022年11月25日–26日",
     year: 2022,
     type: "workshop",
-    detail: "2022年11月25日–26日",
   },
   // ── その他 ──────────────────────────────────
   {
