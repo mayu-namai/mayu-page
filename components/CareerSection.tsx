@@ -30,11 +30,11 @@ const iconMap: Record<CareerItem["type"], React.ReactNode> = {
 };
 
 const colorMap: Record<CareerItem["type"], string> = {
-  education:   "bg-blue-100 text-blue-600",
+  education:   "bg-violet-100 text-violet-600",
   work:        "bg-slate-100 text-slate-600",
   research:    "bg-purple-100 text-purple-600",
-  award:       "bg-yellow-100 text-yellow-600",
-  scholarship: "bg-emerald-100 text-emerald-600",
+  award:       "bg-amber-100 text-amber-600",
+  scholarship: "bg-rose-100 text-rose-600",
 };
 
 const sections: { type: CareerItem["type"]; label: string }[] = [
@@ -72,6 +72,7 @@ export default function CareerSection() {
     <section id="career" className="py-20">
       <div className="max-w-5xl mx-auto px-6">
         <h2 className="text-3xl font-bold text-slate-900 mb-2">CV</h2>
+        <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mt-2 mb-2" />
         <p className="text-slate-500 mb-10 text-sm">経歴・受賞・奨学金</p>
 
         <div className="grid md:grid-cols-2 gap-10">

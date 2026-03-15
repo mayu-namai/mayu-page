@@ -105,6 +105,7 @@ export default function PublicationsSection() {
     <section id="publications" className="py-20 bg-white">
       <div className="max-w-5xl mx-auto px-6">
         <h2 className="text-3xl font-bold text-slate-900 mb-2">Publications</h2>
+        <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mt-2 mb-2" />
         <p className="text-slate-500 mb-8 text-sm">業績リスト</p>
         <ul>
           {sorted.map((pub, i) => (

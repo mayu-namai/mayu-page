@@ -5,6 +5,7 @@ export default function ContactSection() {
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-5xl mx-auto px-6">
         <h2 className="text-3xl font-bold text-slate-900 mb-2">Contact</h2>
+        <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mt-2 mb-2" />
         <p className="text-slate-500 mb-8 text-sm">お問い合わせ</p>
 
         <div className="bg-slate-50 rounded-2xl p-8 max-w-lg">
