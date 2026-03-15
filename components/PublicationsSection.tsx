@@ -1,14 +1,14 @@
 import { publications, Publication } from "@/lib/data";
 
 const typeBadge: Record<Publication["type"], { label: string; color: string }> = {
-  journal:    { label: "Journal",    color: "bg-emerald-100 text-emerald-700" },
-  conference: { label: "Conference", color: "bg-blue-100 text-blue-700" },
-  workshop:   { label: "Conference", color: "bg-blue-100 text-blue-700" },
+  journal:    { label: "Journal",    color: "bg-purple-100 text-purple-700" },
+  conference: { label: "Conference", color: "bg-emerald-100 text-emerald-700" },
+  workshop:   { label: "Conference", color: "bg-emerald-100 text-emerald-700" },
   other:      { label: "Other",      color: "bg-slate-100 text-slate-600" },
 };
 
 const reviewBadge: Partial<Record<Publication["type"], { label: string; color: string }>> = {
-  conference: { label: "査読あり", color: "bg-blue-50 text-blue-600" },
+  conference: { label: "査読あり", color: "bg-orange-100 text-orange-600" },
   workshop:   { label: "査読なし", color: "bg-slate-50 text-slate-500" },
 };
 
@@ -50,7 +50,11 @@ function PublicationCard({ pub }: { pub: Publication }) {
           )}
           {/* 4. 受賞など */}
           {pub.note && (
-            <span className="text-xs font-medium text-orange-600 bg-orange-50 px-2 py-0.5 rounded-full">
+            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${
+              pub.note === "to appear"
+                ? "bg-yellow-100 text-yellow-700"
+                : "bg-orange-100 text-orange-600"
+            }`}>
               {pub.note}
             </span>
           )}
@@ -62,14 +66,13 @@ function PublicationCard({ pub }: { pub: Publication }) {
           <AuthorList authors={pub.authors} />
         </p>
         <div className="space-y-0.5">
-          <p className="text-sm text-slate-500">{pub.venue}</p>
+          <p className="text-sm text-slate-500">
+            {pub.venue}{!pub.conference && pub.date && `，${pub.date}`}
+          </p>
           {pub.conference && (
             <p className="text-sm text-slate-500">
               {pub.conference}{pub.date && `，${pub.date}`}
             </p>
-          )}
-          {!pub.conference && pub.date && (
-            <p className="text-sm text-slate-500">{pub.date}</p>
           )}
         </div>
         <div className="flex gap-3 mt-2">
