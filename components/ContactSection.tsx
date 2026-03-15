@@ -1,5 +1,5 @@
 import { profile } from "@/lib/data";
-import { StarSparkle, CherryBranch } from "@/components/Decorations";
+import { StarSparkle, CherryBranch, CosmicSakuraIllustration } from "@/components/Decorations";
 
 export default function ContactSection() {
   return (
@@ -7,7 +7,7 @@ export default function ContactSection() {
 
       {/* Decorative elements */}
       <StarSparkle className="absolute top-10 right-20 w-4 h-4 text-pink-300 opacity-50" />
-      <StarSparkle className="absolute bottom-16 left-16 w-3 h-3 text-purple-300 opacity-50" />
+      <StarSparkle className="absolute bottom-16 left-16 w-3 h-3 text-blue-300 opacity-50" />
       <CherryBranch className="absolute bottom-4 right-4 w-48 h-36 text-pink-300/30" />
 
       <div className="max-w-5xl mx-auto px-6">
@@ -69,16 +69,10 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Right: Decorative image panel */}
+          {/* Right: Decorative illustration panel */}
           <div className="relative rounded-2xl overflow-hidden min-h-[180px]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/hero.jpg"
-              alt=""
-              className="w-full h-full object-cover"
-              style={{ objectPosition: "center 40%" }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-indigo-950/70 via-purple-950/30 to-transparent" />
+            <CosmicSakuraIllustration />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#030a1a]/70 via-[#040f22]/30 to-transparent" />
             <div className="absolute bottom-6 left-6">
               <p className="text-sm font-medium text-pink-200">Get in touch</p>
               <p className="text-xs text-white/60 mt-0.5">{profile.affiliation}</p>

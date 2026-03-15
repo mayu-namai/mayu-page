@@ -107,7 +107,7 @@ export default function PublicationsSection() {
       </div>
     </section>
     {/* Mountain divider → dark Career section */}
-    <MountainDivider fill="rgb(14 11 46)" />
+    <MountainDivider fill="rgb(3, 10, 26)" />
     </div>
   );
 }

@@ -31,9 +31,9 @@ const iconMap: Record<CareerItem["type"], React.ReactNode> = {
 };
 
 const colorMap: Record<CareerItem["type"], string> = {
-  education:   "bg-violet-800/60 text-violet-200",
+  education:   "bg-blue-800/60 text-blue-200",
   work:        "bg-slate-700/60 text-slate-200",
-  research:    "bg-purple-800/60 text-purple-200",
+  research:    "bg-indigo-800/60 text-indigo-200",
   award:       "bg-amber-700/60 text-amber-200",
   scholarship: "bg-rose-800/60 text-rose-200",
 };
@@ -53,7 +53,7 @@ function Timeline({ type }: { type: CareerItem["type"] }) {
   const items = careers.filter((c) => c.type === type);
   if (items.length === 0) return null;
   return (
-    <ol className="relative border-l border-purple-700/40">
+    <ol className="relative border-l border-blue-800/40">
       {items.map((item, i) => (
         <li key={i} className="mb-6 ml-6">
           <span
@@ -61,7 +61,7 @@ function Timeline({ type }: { type: CareerItem["type"] }) {
           >
             {iconMap[type]}
           </span>
-          <p className="text-xs text-purple-400 mb-0.5">{item.period}</p>
+          <p className="text-xs text-blue-400 mb-0.5">{item.period}</p>
           <p className="font-medium text-white leading-snug">{item.title}</p>
           <p className="text-sm text-slate-400">{item.organization}</p>
           {item.description && (
@@ -76,19 +76,19 @@ function Timeline({ type }: { type: CareerItem["type"] }) {
 export default function CareerSection() {
   return (
     <div>
-      <section id="career" className="relative bg-indigo-950 overflow-hidden py-16">
+      <section id="career" className="relative overflow-hidden py-16" style={{ background: "#030a1a" }}>
 
         {/* Decorative elements */}
         <MoonDecoration
           className="absolute -top-10 right-0 w-72 h-72 opacity-30"
-          bgColor="rgb(14 11 46)"
-          glowColor="rgb(167 139 250 / 0.2)"
+          bgColor="#030a1a"
+          glowColor="rgb(60 140 220 / 0.2)"
         />
         <StarSparkle className="absolute top-12 left-16 w-4 h-4 text-pink-400 opacity-60" />
         <StarSparkle className="absolute top-24 right-40 w-3 h-3 text-amber-400 opacity-50" />
-        <StarSparkle className="absolute bottom-20 left-1/3 w-3 h-3 text-purple-300 opacity-50" />
+        <StarSparkle className="absolute bottom-20 left-1/3 w-3 h-3 text-blue-300 opacity-50" />
         <StarSparkle className="absolute bottom-32 right-20 w-5 h-5 text-pink-300 opacity-40" />
-        <DotCluster className="absolute bottom-12 left-8 w-28 h-28 text-purple-400/15" />
+        <DotCluster className="absolute bottom-12 left-8 w-28 h-28 text-blue-400/15" />
 
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <p className="text-xs uppercase tracking-widest text-pink-400 font-medium mb-2 flex items-center gap-2">
@@ -107,7 +107,7 @@ export default function CareerSection() {
             <div className="space-y-10">
               {leftGroups.map(({ type, label }) => (
                 <div key={type}>
-                  <h3 className="font-semibold text-purple-300 mb-5 text-sm uppercase tracking-wider">
+                  <h3 className="font-semibold text-blue-300 mb-5 text-sm uppercase tracking-wider">
                     {label}
                   </h3>
                   <Timeline type={type} />
@@ -118,7 +118,7 @@ export default function CareerSection() {
             <div className="space-y-10">
               {rightGroups.map(({ type, label }) => (
                 <div key={type}>
-                  <h3 className="font-semibold text-purple-300 mb-5 text-sm uppercase tracking-wider">
+                  <h3 className="font-semibold text-blue-300 mb-5 text-sm uppercase tracking-wider">
                     {label}
                   </h3>
                   <Timeline type={type} />

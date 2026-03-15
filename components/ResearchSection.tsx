@@ -1,5 +1,5 @@
 import { researches } from "@/lib/data";
-import { MountainDivider, StarSparkle } from "@/components/Decorations";
+import { MountainDivider, StarSparkle, CosmicSakuraIllustration } from "@/components/Decorations";
 
 export default function ResearchSection() {
   return (
@@ -8,7 +8,7 @@ export default function ResearchSection() {
 
         {/* Decorative stars */}
         <StarSparkle className="absolute top-8 right-12 w-4 h-4 text-pink-300 opacity-60" />
-        <StarSparkle className="absolute top-16 left-8 w-3 h-3 text-purple-300 opacity-50" />
+        <StarSparkle className="absolute top-16 left-8 w-3 h-3 text-blue-300 opacity-50" />
         <StarSparkle className="absolute bottom-12 right-1/4 w-3 h-3 text-amber-400 opacity-50" />
 
         <div className="max-w-5xl mx-auto px-6">
@@ -30,13 +30,7 @@ export default function ResearchSection() {
                 className="bg-white rounded-2xl overflow-hidden shadow-sm border border-pink-100 hover:shadow-md hover:border-pink-200 transition-all"
               >
                 <div className="relative h-40 overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/hero.jpg"
-                    alt=""
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: i % 2 === 0 ? "center 15%" : "center 65%" }}
-                  />
+                  <CosmicSakuraIllustration />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
                 </div>
                 <div className="p-6 -mt-2">
