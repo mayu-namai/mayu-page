@@ -1,5 +1,40 @@
 // SVG decorative components for organic illustrated layout
 
+/**
+ * Sawtooth divider — uniform triangular teeth pointing upward.
+ * Use `absolute bottom-0 left-0 right-0` inside a `relative overflow-hidden` container
+ * so the teeth visually "bite into" the content above.
+ */
+export function SawtoothDivider({
+  fill = "white",
+  count = 14,
+  height = 80,
+}: {
+  fill?: string;
+  count?: number;
+  height?: number;
+}) {
+  const W = 1440;
+  let d = `M0,${height}`;
+  const T = W / count;
+  for (let i = 0; i < count; i++) {
+    d += ` L${((i + 0.5) * T).toFixed(1)},6 L${((i + 1) * T).toFixed(1)},${height}`;
+  }
+  d += " Z";
+  return (
+    <svg
+      viewBox={`0 0 ${W} ${height}`}
+      preserveAspectRatio="none"
+      className="absolute bottom-0 left-0 right-0 w-full block"
+      style={{ height: "clamp(44px, 6vw, 96px)" }}
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <path d={d} fill={fill} />
+    </svg>
+  );
+}
+
 /** Wave divider — placed at BOTTOM of dark section, fills with next section's bg color */
 export function WaveDivider({ fill = "white" }: { fill?: string }) {
   return (

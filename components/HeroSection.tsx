@@ -1,77 +1,68 @@
 import { profile } from "@/lib/data";
-import { WaveDivider, MoonDecoration, StarSparkle, DotCluster, CherryBranch, CosmicSakuraIllustration } from "@/components/Decorations";
+import { SawtoothDivider, CosmicSakuraIllustration } from "@/components/Decorations";
 
 export default function HeroSection() {
   return (
     <div>
-      <section
-        id="about"
-        className="relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #010810 0%, #040f22 50%, #081828 100%)" }}
-      >
-        {/* ── Decorative background elements ── */}
-
-        {/* Large moon top-right */}
-        <MoonDecoration
-          className="absolute -top-16 -right-16 w-80 h-80 opacity-60"
-          bgColor="#040f22"
-          glowColor="rgb(244 114 182 / 0.22)"
+      {/* ── Full-width hero banner ── */}
+      {/* Save the cherry blossom landscape image as public/hero.jpg */}
+      <div className="relative h-[440px] md:h-[560px] overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/hero.jpg"
+          alt=""
+          className="w-full h-full object-cover object-center"
         />
+        {/* Darkening gradient at the top so Navbar text is readable */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
+        {/* Sawtooth cut — white teeth eat into the bottom of the image */}
+        <SawtoothDivider fill="white" />
+      </div>
 
-        {/* Second smaller moon mid-left */}
-        <MoonDecoration
-          className="absolute bottom-24 -left-20 w-52 h-52 opacity-40"
-          bgColor="#081828"
-          glowColor="rgb(60 140 220 / 0.25)"
-        />
+      {/* ── About / Profile section ── */}
+      <section id="about" className="bg-white py-14 md:py-20">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
 
-        {/* Stars scattered */}
-        <StarSparkle className="absolute top-20 left-1/4 w-4 h-4 text-pink-400 opacity-70" />
-        <StarSparkle className="absolute top-36 right-1/3 w-3 h-3 text-amber-400 opacity-60" />
-        <StarSparkle className="absolute bottom-28 right-1/4 w-5 h-5 text-blue-300 opacity-50" />
-        <StarSparkle className="absolute top-1/2 left-16 w-3 h-3 text-pink-300 opacity-40" />
-        <StarSparkle className="absolute bottom-40 left-1/3 w-2 h-2 text-amber-300 opacity-60" />
+            {/* Portrait — replace with <img src="/portrait.jpg"> when available */}
+            <div className="shrink-0 self-center md:self-start">
+              <div className="relative w-56 h-72 md:w-64 md:h-80 rounded-2xl overflow-hidden shadow-xl shadow-slate-200 ring-1 ring-slate-100">
+                <CosmicSakuraIllustration />
+              </div>
+            </div>
 
-        {/* Dot cluster */}
-        <DotCluster className="absolute top-24 right-20 w-24 h-24 text-pink-400/20" />
-
-        {/* Cherry branch bottom-left */}
-        <CherryBranch className="absolute bottom-12 left-4 w-48 h-36 text-pink-400/20" />
-
-        {/* ── Content ── */}
-        <div className="max-w-5xl mx-auto px-6 pt-28 pb-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-
-            {/* Left: Profile info */}
-            <div className="relative z-10">
-              <p className="text-xs uppercase tracking-widest text-pink-300 font-medium mb-3 flex items-center gap-2">
-                <span className="w-6 h-px bg-pink-400 inline-block" />
-                {profile.position}
-              </p>
+            {/* Profile info */}
+            <div className="flex-1 min-w-0 pt-0 md:pt-4">
               <h1
-                className="text-6xl font-bold text-white mb-1 leading-tight"
+                className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-800 mb-1 leading-tight"
                 style={{ fontFamily: "var(--font-display), Georgia, serif" }}
               >
                 {profile.name}
               </h1>
               <p
-                className="text-2xl text-blue-200 mb-6 tracking-wide"
+                className="text-xl md:text-2xl text-slate-400 mb-7 tracking-wide"
                 style={{ fontFamily: "var(--font-display), Georgia, serif" }}
               >
                 {profile.nameEn}
               </p>
 
-              <dl className="text-sm text-slate-300 space-y-2 mb-6">
-                <div className="flex gap-3">
-                  <dt className="text-slate-500 shrink-0 w-8">所属</dt>
-                  <dd>{profile.affiliation}　{profile.lab}</dd>
+              <dl className="text-sm space-y-2.5 mb-7">
+                <div className="flex gap-3 items-baseline flex-wrap">
+                  <dt className="shrink-0 text-slate-400 font-medium">
+                    Affiliation&thinsp;<span className="text-pink-400 text-xs">▶</span>
+                  </dt>
+                  <dd className="text-slate-700">
+                    {profile.affiliation}　{profile.lab}
+                  </dd>
                 </div>
-                <div className="flex gap-3">
-                  <dt className="text-slate-500 shrink-0 w-8">連絡</dt>
+                <div className="flex gap-3 items-baseline">
+                  <dt className="shrink-0 text-slate-400 font-medium">
+                    Mail&thinsp;<span className="text-pink-400 text-xs">▶</span>
+                  </dt>
                   <dd>
                     <a
                       href={`mailto:${profile.email}`}
-                      className="text-pink-300 hover:text-pink-200 hover:underline"
+                      className="text-slate-700 hover:text-blue-600 hover:underline"
                     >
                       {profile.email}
                     </a>
@@ -79,60 +70,27 @@ export default function HeroSection() {
                 </div>
               </dl>
 
-              <div className="flex flex-wrap gap-2 mb-7">
+              {/* Research interest badges — arrow/chevron style */}
+              <div className="flex flex-wrap gap-2 mb-6">
                 {profile.interests.map((kw) => (
                   <span
                     key={kw}
-                    className="px-3 py-1 bg-white/10 text-pink-200 border border-pink-400/30 rounded-full text-xs font-medium"
+                    className="pl-4 pr-6 py-1.5 bg-slate-100 text-slate-700 text-sm font-medium select-none"
+                    style={{
+                      clipPath:
+                        "polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%)",
+                    }}
                   >
                     {kw}
                   </span>
                 ))}
               </div>
 
-              <div className="flex gap-4 flex-wrap">
-                <a
-                  href={`mailto:${profile.email}`}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-pink-500 text-white rounded-lg text-sm font-medium hover:bg-pink-400 transition-colors shadow-md shadow-pink-900/40"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  Email
-                </a>
-                {profile.googleScholar && (
-                  <a href={profile.googleScholar} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 border border-blue-400/40 text-blue-300 rounded-lg text-sm font-medium hover:border-pink-400/60 hover:text-pink-300 transition-colors">
-                    Google Scholar
-                  </a>
-                )}
-              </div>
-
-              <p className="text-xs text-slate-500 mt-5">{profile.updatedAt}現在</p>
-            </div>
-
-            {/* Right: Illustration */}
-            <div className="relative flex justify-center md:justify-end mt-8 md:mt-0 z-10">
-              <div className="relative w-72 md:w-80 aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-blue-950/80 ring-1 ring-pink-400/20">
-                <CosmicSakuraIllustration />
-                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#030a1a]/70 to-transparent" />
-                <span className="absolute top-4 right-4 bg-pink-500/90 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full font-medium shadow-sm">
-                  HCI × CG
-                </span>
-              </div>
-              <div className="absolute -bottom-6 left-0 md:-left-10 w-40 h-28 rounded-xl overflow-hidden ring-2 ring-pink-400/40 shadow-xl shadow-blue-950/60">
-                <CosmicSakuraIllustration />
-                <div className="absolute inset-0 bg-[#030a1a]/20" />
-              </div>
-              <div className="absolute -right-3 top-6 bottom-10 w-0.5 bg-gradient-to-b from-pink-400/60 via-blue-400/30 to-transparent hidden md:block" />
+              <p className="text-xs text-slate-400 text-right">{profile.updatedAt} 現在</p>
             </div>
 
           </div>
         </div>
-
-        {/* Wave divider → white Research section */}
-        <WaveDivider fill="white" />
       </section>
     </div>
   );
