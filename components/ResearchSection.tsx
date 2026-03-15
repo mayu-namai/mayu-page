@@ -12,14 +12,16 @@ export default function ResearchSection() {
         <StarSparkle className="absolute bottom-12 right-1/4 w-3 h-3 text-amber-400 opacity-50" />
 
         {/* ── Centered section heading ── */}
-        <div className="text-center mb-12 px-6">
+        <div className="text-center mb-14 px-6">
           <h2
-            className="text-5xl md:text-6xl font-bold text-slate-800 tracking-widest uppercase mb-3"
+            className="text-5xl md:text-6xl font-bold text-slate-800 tracking-widest uppercase mb-2"
             style={{ fontFamily: "var(--font-display), Georgia, serif" }}
           >
             Research
           </h2>
           <p className="text-sm text-slate-400 tracking-wider">研究テーマ・プロジェクト</p>
+          {/* Thin decorative rule */}
+          <div className="w-10 h-px bg-pink-300 mx-auto mt-5" />
         </div>
 
         {/* ── Alternating image/text cards ── */}
@@ -43,18 +45,30 @@ export default function ResearchSection() {
 
               {/* Text half */}
               <div className="flex-1 p-8 md:p-10 flex flex-col justify-start">
+                {/* Title — Noto Sans JP for Japanese titles */}
                 <h3
                   className="font-bold text-slate-800 text-xl leading-snug mb-3"
-                  style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+                  style={{ fontFamily: "var(--font-noto), sans-serif" }}
                 >
                   {r.title}
                 </h3>
-                <p className="text-sm text-slate-500 leading-relaxed mb-5 flex-1">
+
+                {/* Description */}
+                <p className="text-sm text-slate-500 leading-[1.85] mb-5 flex-1">
                   {r.description}
                 </p>
-                <p className="text-xs text-rose-400 leading-relaxed tracking-wide">
-                  {r.keywords.join("\u2002\u2002")}
-                </p>
+
+                {/* Keyword chips */}
+                <div className="flex flex-wrap gap-1.5">
+                  {r.keywords.map((kw) => (
+                    <span
+                      key={kw}
+                      className="inline-flex items-center px-2.5 py-0.5 rounded-md bg-rose-50 text-rose-500 text-xs font-medium border border-rose-100"
+                    >
+                      {kw}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

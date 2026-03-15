@@ -38,9 +38,11 @@ function AuthorList({ authors, isEnglish }: { authors: string[]; isEnglish: bool
 function PublicationEntry({ pub, index }: { pub: Publication; index: number }) {
   const q = pub.isEnglish ? ["\u201c", "\u201d"] : ["\u300c", "\u300d"];
   return (
-    <li className="flex gap-3 py-3 border-b border-slate-100 last:border-0 text-sm text-slate-600 leading-relaxed">
+    <li className="flex gap-3 py-3.5 border-b border-slate-100 last:border-0 text-sm text-slate-600 leading-[1.85]">
       {/* 番号 */}
-      <span className="shrink-0 font-semibold text-slate-700 w-5 text-right">{index + 1}.</span>
+      <span className="shrink-0 font-semibold text-slate-400 w-5 text-right tabular-nums pt-px">
+        {index + 1}.
+      </span>
       {/* 本文 */}
       <div>
         <AuthorList authors={pub.authors} isEnglish={pub.isEnglish} />
@@ -48,10 +50,10 @@ function PublicationEntry({ pub, index }: { pub: Publication; index: number }) {
         {q[0]}
         <span className="text-slate-800">{pub.title}</span>
         {q[1]},{" "}
-        {pub.citation}
+        <span className="text-slate-500">{pub.citation}</span>
         {/* ノート・受賞バッジ */}
         {pub.note && (
-          <span className="ml-2 inline-block text-xs font-medium px-2 py-0.5 rounded-full bg-orange-100 text-orange-600">
+          <span className="ml-2 inline-block text-xs font-medium px-2 py-0.5 rounded-full bg-orange-50 text-orange-600 border border-orange-200">
             {pub.note}
           </span>
         )}
@@ -60,19 +62,19 @@ function PublicationEntry({ pub, index }: { pub: Publication; index: number }) {
           <span className="inline-flex gap-2 ml-2">
             {pub.doi && (
               <a href={pub.doi} target="_blank" rel="noopener noreferrer"
-                className="text-xs text-blue-600 hover:underline">DOI</a>
+                className="text-xs text-blue-500 hover:text-blue-700 hover:underline">DOI</a>
             )}
             {pub.arxiv && (
               <a href={pub.arxiv} target="_blank" rel="noopener noreferrer"
-                className="text-xs text-blue-600 hover:underline">arXiv</a>
+                className="text-xs text-blue-500 hover:text-blue-700 hover:underline">arXiv</a>
             )}
             {pub.pdf && (
               <a href={pub.pdf} target="_blank" rel="noopener noreferrer"
-                className="text-xs text-blue-600 hover:underline">PDF</a>
+                className="text-xs text-blue-500 hover:text-blue-700 hover:underline">PDF</a>
             )}
             {pub.link && (
               <a href={pub.link} target="_blank" rel="noopener noreferrer"
-                className="text-xs text-blue-600 hover:underline">Web</a>
+                className="text-xs text-blue-500 hover:text-blue-700 hover:underline">Web</a>
             )}
           </span>
         )}
@@ -94,12 +96,14 @@ export default function PublicationsSection() {
         {/* ── Centered section heading ── */}
         <div className="text-center mb-14 px-6">
           <h2
-            className="text-5xl md:text-6xl font-bold text-slate-800 tracking-widest uppercase mb-3"
+            className="text-5xl md:text-6xl font-bold text-slate-800 tracking-widest uppercase mb-2"
             style={{ fontFamily: "var(--font-display), Georgia, serif" }}
           >
             Publications
           </h2>
           <p className="text-sm text-slate-400 tracking-wider">業績リスト</p>
+          {/* Thin decorative rule */}
+          <div className="w-10 h-px bg-pink-300 mx-auto mt-5" />
         </div>
 
         <div className="max-w-5xl mx-auto px-6 space-y-10">
@@ -111,10 +115,10 @@ export default function PublicationsSection() {
             return (
               <div key={type}>
                 {/* Category header */}
-                <div className="flex items-center gap-3 mb-4 pl-4 border-l-4 border-slate-700">
-                  <h3 className="text-lg font-bold text-slate-800">{label}</h3>
+                <div className="flex items-center gap-2.5 mb-5 pl-4 border-l-4 border-pink-400">
+                  <h3 className="text-base font-bold text-slate-800 tracking-wide">{label}</h3>
                   {badge && (
-                    <span className="text-xs font-semibold px-2.5 py-0.5 rounded bg-amber-400 text-amber-900">
+                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-600 border border-amber-200 font-medium">
                       {badge}
                     </span>
                   )}

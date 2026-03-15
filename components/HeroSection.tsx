@@ -33,31 +33,36 @@ export default function HeroSection() {
 
             {/* Profile info */}
             <div className="flex-1 min-w-0 pt-0 md:pt-4">
+
+              {/* Japanese name — Noto Sans JP, bold for impact */}
               <h1
                 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-800 mb-1 leading-tight"
-                style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+                style={{ fontFamily: "var(--font-noto), sans-serif" }}
               >
                 {profile.name}
               </h1>
+
+              {/* English name — Cormorant Garamond, generous letter-spacing */}
               <p
-                className="text-xl md:text-2xl text-slate-400 mb-7 tracking-wide"
+                className="text-xl md:text-2xl text-slate-400 mb-8 tracking-[0.18em]"
                 style={{ fontFamily: "var(--font-display), Georgia, serif" }}
               >
                 {profile.nameEn}
               </p>
 
-              <dl className="text-sm space-y-2.5 mb-7">
-                <div className="flex gap-3 items-baseline flex-wrap">
-                  <dt className="shrink-0 text-slate-400 font-medium">
-                    Affiliation&thinsp;<span className="text-pink-400 text-xs">▶</span>
+              {/* Affiliation / Mail */}
+              <dl className="text-sm space-y-2.5 mb-8">
+                <div className="flex gap-4 items-baseline flex-wrap">
+                  <dt className="shrink-0 text-slate-400 font-semibold text-xs uppercase tracking-widest">
+                    Affiliation
                   </dt>
-                  <dd className="text-slate-700">
+                  <dd className="text-slate-700 leading-relaxed">
                     {profile.affiliation}　{profile.lab}
                   </dd>
                 </div>
-                <div className="flex gap-3 items-baseline">
-                  <dt className="shrink-0 text-slate-400 font-medium">
-                    Mail&thinsp;<span className="text-pink-400 text-xs">▶</span>
+                <div className="flex gap-4 items-baseline">
+                  <dt className="shrink-0 text-slate-400 font-semibold text-xs uppercase tracking-widest">
+                    Mail
                   </dt>
                   <dd>
                     <a
@@ -70,16 +75,12 @@ export default function HeroSection() {
                 </div>
               </dl>
 
-              {/* Research interest badges — arrow/chevron style */}
+              {/* Research interest badges — clean rounded pill */}
               <div className="flex flex-wrap gap-2 mb-6">
                 {profile.interests.map((kw) => (
                   <span
                     key={kw}
-                    className="pl-4 pr-6 py-1.5 bg-slate-100 text-slate-700 text-sm font-medium select-none"
-                    style={{
-                      clipPath:
-                        "polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%)",
-                    }}
+                    className="inline-flex items-center px-3.5 py-1 text-sm text-slate-600 font-medium bg-white border border-slate-200 rounded-full shadow-sm select-none"
                   >
                     {kw}
                   </span>
