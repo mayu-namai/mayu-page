@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Noto_Sans_JP } from "next/font/google";
+import { Geist, Noto_Sans_JP, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,6 +10,11 @@ const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
   variable: "--font-noto",
   weight: ["400", "500", "700"],
+});
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className="scroll-smooth">
       <body
-        className={`${geist.variable} ${notoSansJP.variable} font-sans bg-slate-50 text-slate-800 antialiased`}
+        className={`${geist.variable} ${notoSansJP.variable} ${cormorant.variable} font-sans bg-slate-50 text-slate-800 antialiased`}
       >
         <Navbar />
         <main className="min-h-screen">{children}</main>

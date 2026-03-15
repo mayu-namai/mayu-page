@@ -1,4 +1,5 @@
 import { publications, Publication } from "@/lib/data";
+import { MountainDivider, StarSparkle } from "@/components/Decorations";
 
 const categories: { type: Publication["type"]; label: string }[] = [
   { type: "journal",             label: "Peer-reviewed journal articles" },
@@ -65,11 +66,23 @@ function PublicationEntry({ pub }: { pub: Publication }) {
 
 export default function PublicationsSection() {
   return (
-    <section id="publications" className="py-20 bg-white">
+    <div>
+    <section id="publications" className="relative py-20 bg-slate-50 overflow-hidden">
+      {/* Decorative stars */}
+      <StarSparkle className="absolute top-10 right-16 w-3 h-3 text-purple-400 opacity-50" />
+      <StarSparkle className="absolute bottom-16 left-12 w-4 h-4 text-pink-300 opacity-40" />
+
       <div className="max-w-5xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-slate-900 mb-2">Publications</h2>
-        <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mt-2 mb-2" />
-        <p className="text-slate-500 mb-10 text-sm">業績リスト</p>
+        <p className="text-xs uppercase tracking-widest text-pink-400 font-medium mb-2 flex items-center gap-2">
+          <span className="w-6 h-px bg-pink-400 inline-block" />
+          業績リスト
+        </p>
+        <h2
+          className="text-5xl font-bold text-slate-900 mb-10"
+          style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+        >
+          Publications
+        </h2>
 
         <div className="space-y-10">
           {categories.map(({ type, label }) => {
@@ -93,5 +106,8 @@ export default function PublicationsSection() {
         </div>
       </div>
     </section>
+    {/* Mountain divider → dark Career section */}
+    <MountainDivider fill="rgb(14 11 46)" />
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 import { careers, CareerItem } from "@/lib/data";
+import { WaveDivider, MoonDecoration, StarSparkle, DotCluster } from "@/components/Decorations";
 
 const iconMap: Record<CareerItem["type"], React.ReactNode> = {
   education: (
@@ -30,11 +31,11 @@ const iconMap: Record<CareerItem["type"], React.ReactNode> = {
 };
 
 const colorMap: Record<CareerItem["type"], string> = {
-  education:   "bg-violet-100 text-violet-600",
-  work:        "bg-slate-100 text-slate-600",
-  research:    "bg-purple-100 text-purple-600",
-  award:       "bg-amber-100 text-amber-600",
-  scholarship: "bg-rose-100 text-rose-600",
+  education:   "bg-violet-800/60 text-violet-200",
+  work:        "bg-slate-700/60 text-slate-200",
+  research:    "bg-purple-800/60 text-purple-200",
+  award:       "bg-amber-700/60 text-amber-200",
+  scholarship: "bg-rose-800/60 text-rose-200",
 };
 
 const leftGroups: { type: CareerItem["type"]; label: string }[] = [
@@ -52,7 +53,7 @@ function Timeline({ type }: { type: CareerItem["type"] }) {
   const items = careers.filter((c) => c.type === type);
   if (items.length === 0) return null;
   return (
-    <ol className="relative border-l border-slate-200">
+    <ol className="relative border-l border-purple-700/40">
       {items.map((item, i) => (
         <li key={i} className="mb-6 ml-6">
           <span
@@ -60,11 +61,11 @@ function Timeline({ type }: { type: CareerItem["type"] }) {
           >
             {iconMap[type]}
           </span>
-          <p className="text-xs text-slate-400 mb-0.5">{item.period}</p>
-          <p className="font-medium text-slate-800 leading-snug">{item.title}</p>
-          <p className="text-sm text-slate-500">{item.organization}</p>
+          <p className="text-xs text-purple-400 mb-0.5">{item.period}</p>
+          <p className="font-medium text-white leading-snug">{item.title}</p>
+          <p className="text-sm text-slate-400">{item.organization}</p>
           {item.description && (
-            <p className="text-xs text-slate-400 mt-0.5">{item.description}</p>
+            <p className="text-xs text-slate-500 mt-0.5">{item.description}</p>
           )}
         </li>
       ))}
@@ -74,33 +75,39 @@ function Timeline({ type }: { type: CareerItem["type"] }) {
 
 export default function CareerSection() {
   return (
-    <section id="career" className="overflow-hidden">
+    <div>
+      <section id="career" className="relative bg-indigo-950 overflow-hidden py-16">
 
-      <div className="relative h-36 overflow-hidden">
-        <img
-          src="/hero.jpg"
-          alt=""
-          className="w-full h-full object-cover"
-          style={{ objectPosition: "center 30%" }}
+        {/* Decorative elements */}
+        <MoonDecoration
+          className="absolute -top-10 right-0 w-72 h-72 opacity-30"
+          bgColor="rgb(14 11 46)"
+          glowColor="rgb(167 139 250 / 0.2)"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-50/95 via-slate-50/80 to-slate-50/95" />
-        <div className="absolute inset-0 flex items-center px-6">
-          <div className="max-w-5xl mx-auto w-full">
-            <h2 className="text-3xl font-bold text-slate-900 mb-1">CV</h2>
-            <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mt-1" />
-            <p className="text-slate-500 text-sm mt-1">経歴・受賞・奨学金</p>
-          </div>
-        </div>
-      </div>
+        <StarSparkle className="absolute top-12 left-16 w-4 h-4 text-pink-400 opacity-60" />
+        <StarSparkle className="absolute top-24 right-40 w-3 h-3 text-amber-400 opacity-50" />
+        <StarSparkle className="absolute bottom-20 left-1/3 w-3 h-3 text-purple-300 opacity-50" />
+        <StarSparkle className="absolute bottom-32 right-20 w-5 h-5 text-pink-300 opacity-40" />
+        <DotCluster className="absolute bottom-12 left-8 w-28 h-28 text-purple-400/15" />
 
-      <div className="py-12">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <p className="text-xs uppercase tracking-widest text-pink-400 font-medium mb-2 flex items-center gap-2">
+            <span className="w-6 h-px bg-pink-400 inline-block" />
+            経歴・受賞・奨学金
+          </p>
+          <h2
+            className="text-5xl font-bold text-white mb-10"
+            style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+          >
+            CV
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-10">
 
             <div className="space-y-10">
               {leftGroups.map(({ type, label }) => (
                 <div key={type}>
-                  <h3 className="font-semibold text-slate-700 mb-5 text-sm uppercase tracking-wider">
+                  <h3 className="font-semibold text-purple-300 mb-5 text-sm uppercase tracking-wider">
                     {label}
                   </h3>
                   <Timeline type={type} />
@@ -111,7 +118,7 @@ export default function CareerSection() {
             <div className="space-y-10">
               {rightGroups.map(({ type, label }) => (
                 <div key={type}>
-                  <h3 className="font-semibold text-slate-700 mb-5 text-sm uppercase tracking-wider">
+                  <h3 className="font-semibold text-purple-300 mb-5 text-sm uppercase tracking-wider">
                     {label}
                   </h3>
                   <Timeline type={type} />
@@ -121,8 +128,10 @@ export default function CareerSection() {
 
           </div>
         </div>
-      </div>
 
-    </section>
+        {/* Wave divider → white Contact section */}
+        <WaveDivider fill="white" />
+      </section>
+    </div>
   );
 }

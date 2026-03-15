@@ -1,12 +1,26 @@
 import { profile } from "@/lib/data";
+import { StarSparkle, CherryBranch } from "@/components/Decorations";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="relative py-20 bg-white overflow-hidden">
+
+      {/* Decorative elements */}
+      <StarSparkle className="absolute top-10 right-20 w-4 h-4 text-pink-300 opacity-50" />
+      <StarSparkle className="absolute bottom-16 left-16 w-3 h-3 text-purple-300 opacity-50" />
+      <CherryBranch className="absolute bottom-4 right-4 w-48 h-36 text-pink-300/30" />
+
       <div className="max-w-5xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-slate-900 mb-2">Contact</h2>
-        <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mt-2 mb-2" />
-        <p className="text-slate-500 mb-8 text-sm">お問い合わせ</p>
+        <p className="text-xs uppercase tracking-widest text-pink-400 font-medium mb-2 flex items-center gap-2">
+          <span className="w-6 h-px bg-pink-400 inline-block" />
+          お問い合わせ
+        </p>
+        <h2
+          className="text-5xl font-bold text-slate-900 mb-8"
+          style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+        >
+          Contact
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
 
