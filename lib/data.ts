@@ -120,6 +120,7 @@ export type Research = {
   title: string;
   description: string;
   keywords: string[];
+  image?: string;  // public/ 以下のパス (例: "/research/vignette.jpg")。省略時は "/hero.jpg" を使用
   link?: string;
 };
 
