@@ -37,8 +37,13 @@ const colorMap: Record<CareerItem["type"], string> = {
   scholarship: "bg-rose-100 text-rose-600",
 };
 
-const sections: { type: CareerItem["type"]; label: string }[] = [
-  { type: "education",   label: "学歴" },
+const leftGroups: { type: CareerItem["type"]; label: string }[] = [
+  { type: "education", label: "学歴" },
+  { type: "research",  label: "研究活動" },
+  { type: "work",      label: "職歴" },
+];
+
+const rightGroups: { type: CareerItem["type"]; label: string }[] = [
   { type: "award",       label: "受賞歴" },
   { type: "scholarship", label: "奨学金" },
 ];
@@ -69,45 +74,55 @@ function Timeline({ type }: { type: CareerItem["type"] }) {
 
 export default function CareerSection() {
   return (
-    <section id="career" className="py-20">
-      <div className="max-w-5xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-slate-900 mb-2">CV</h2>
-        <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mt-2 mb-2" />
-        <p className="text-slate-500 mb-10 text-sm">経歴・受賞・奨学金</p>
+    <section id="career" className="overflow-hidden">
 
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* 学歴・研究活動・職歴：左カラムに縦積み */}
-          <div className="space-y-10">
-            {[
-              { type: "education" as const, label: "学歴" },
-              { type: "research"  as const, label: "研究活動" },
-              { type: "work"      as const, label: "職歴" },
-            ].map(({ type, label }) => (
-              <div key={type}>
-                <h3 className="font-semibold text-slate-700 mb-5 text-sm uppercase tracking-wider">
-                  {label}
-                </h3>
-                <Timeline type={type} />
-              </div>
-            ))}
-          </div>
-
-          {/* 受賞・奨学金：右カラムに縦積み */}
-          <div className="space-y-10">
-            {[
-              { type: "award"       as const, label: "受賞歴" },
-              { type: "scholarship" as const, label: "奨学金" },
-            ].map(({ type, label }) => (
-              <div key={type}>
-                <h3 className="font-semibold text-slate-700 mb-5 text-sm uppercase tracking-wider">
-                  {label}
-                </h3>
-                <Timeline type={type} />
-              </div>
-            ))}
+      <div className="relative h-36 overflow-hidden">
+        <img
+          src="/hero.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+          style={{ objectPosition: "center 30%" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-50/95 via-slate-50/80 to-slate-50/95" />
+        <div className="absolute inset-0 flex items-center px-6">
+          <div className="max-w-5xl mx-auto w-full">
+            <h2 className="text-3xl font-bold text-slate-900 mb-1">CV</h2>
+            <div className="w-10 h-0.5 bg-gradient-to-r from-pink-400 to-purple-400 mt-1" />
+            <p className="text-slate-500 text-sm mt-1">経歴・受賞・奨学金</p>
           </div>
         </div>
       </div>
+
+      <div className="py-12">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-10">
+
+            <div className="space-y-10">
+              {leftGroups.map(({ type, label }) => (
+                <div key={type}>
+                  <h3 className="font-semibold text-slate-700 mb-5 text-sm uppercase tracking-wider">
+                    {label}
+                  </h3>
+                  <Timeline type={type} />
+                </div>
+              ))}
+            </div>
+
+            <div className="space-y-10">
+              {rightGroups.map(({ type, label }) => (
+                <div key={type}>
+                  <h3 className="font-semibold text-slate-700 mb-5 text-sm uppercase tracking-wider">
+                    {label}
+                  </h3>
+                  <Timeline type={type} />
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </section>
   );
 }

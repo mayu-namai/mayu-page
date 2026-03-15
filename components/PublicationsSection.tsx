@@ -79,7 +79,7 @@ export default function PublicationsSection() {
             if (items.length === 0) return null;
             return (
               <div key={type}>
-                <h3 className="text-base font-semibold text-slate-700 mb-3 pb-1 border-b border-slate-200">
+                <h3 className="text-base font-semibold text-slate-700 mb-3 pl-3 border-l-4 border-pink-400">
                   {label}
                 </h3>
                 <ul>
