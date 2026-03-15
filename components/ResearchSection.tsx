@@ -43,9 +43,6 @@ export default function ResearchSection() {
 
               {/* Text half */}
               <div className="flex-1 p-8 md:p-10 flex flex-col justify-start">
-                <span className="text-5xl font-bold text-slate-700 leading-none mb-5 select-none">
-                  {i + 1}
-                </span>
                 <h3
                   className="font-bold text-slate-800 text-xl leading-snug mb-3"
                   style={{ fontFamily: "var(--font-display), Georgia, serif" }}
