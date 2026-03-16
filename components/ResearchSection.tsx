@@ -4,24 +4,23 @@ import { MountainDivider, StarSparkle } from "@/components/Decorations";
 export default function ResearchSection() {
   return (
     <div>
-      <section id="research" className="relative bg-white overflow-hidden py-16 md:py-24">
+      <section id="research" className="relative overflow-hidden py-16 md:py-24" style={{ background: "#FFFFFF" }}>
 
         {/* Decorative stars */}
-        <StarSparkle className="absolute top-8 right-12 w-4 h-4 text-pink-300 opacity-60" />
-        <StarSparkle className="absolute top-16 left-8 w-3 h-3 text-blue-300 opacity-50" />
-        <StarSparkle className="absolute bottom-12 right-1/4 w-3 h-3 text-amber-400 opacity-50" />
+        <StarSparkle className="absolute top-8 right-12 w-4 h-4 opacity-50" style={{ color: "#D9B343" }} />
+        <StarSparkle className="absolute top-16 left-8 w-3 h-3 opacity-40" style={{ color: "#A0B1DD" }} />
+        <StarSparkle className="absolute bottom-12 right-1/4 w-3 h-3 opacity-40" style={{ color: "#D9B343" }} />
 
         {/* ── Centered section heading ── */}
         <div className="text-center mb-14 px-6">
           <h2
-            className="text-5xl md:text-6xl font-bold text-slate-800 tracking-widest uppercase mb-2"
-            style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+            className="text-5xl md:text-6xl font-bold tracking-widest uppercase mb-2"
+            style={{ fontFamily: "var(--font-display), Georgia, serif", color: "#223F59" }}
           >
             Research
           </h2>
-          <p className="text-sm text-slate-400 tracking-wider">研究テーマ・プロジェクト</p>
-          {/* Thin decorative rule */}
-          <div className="w-10 h-px bg-pink-300 mx-auto mt-5" />
+          <p className="text-sm tracking-wider" style={{ color: "#2F4C73", opacity: 0.6 }}>研究テーマ・プロジェクト</p>
+          <div className="w-10 h-px mx-auto mt-5" style={{ background: "#D9B343" }} />
         </div>
 
         {/* ── Alternating image/text cards ── */}
@@ -29,9 +28,8 @@ export default function ResearchSection() {
           {researches.map((r, i) => (
             <div
               key={i}
-              className={`flex flex-col md:flex-row ${
-                i % 2 === 1 ? "md:flex-row-reverse" : ""
-              } overflow-hidden bg-slate-50 border border-slate-100`}
+              className={`flex flex-col md:flex-row ${i % 2 === 1 ? "md:flex-row-reverse" : ""} overflow-hidden`}
+              style={{ background: "#F0EDE5", border: "1px solid rgba(47,76,115,0.1)" }}
             >
               {/* Image half */}
               <div className="md:w-1/2 h-56 md:h-72 relative overflow-hidden shrink-0">
@@ -45,25 +43,26 @@ export default function ResearchSection() {
 
               {/* Text half */}
               <div className="flex-1 p-8 md:p-10 flex flex-col justify-start">
-                {/* Title — Noto Sans JP for Japanese titles */}
                 <h3
-                  className="font-bold text-slate-800 text-xl leading-snug mb-3"
-                  style={{ fontFamily: "var(--font-noto), sans-serif" }}
+                  className="font-bold text-xl leading-snug mb-3"
+                  style={{ fontFamily: "var(--font-noto), sans-serif", color: "#223F59" }}
                 >
                   {r.title}
                 </h3>
-
-                {/* Description */}
-                <p className="text-sm text-slate-500 leading-[1.85] mb-5 flex-1">
+                <p className="text-sm leading-[1.85] mb-5 flex-1" style={{ color: "#2F4C73", opacity: 0.75 }}>
                   {r.description}
                 </p>
-
                 {/* Keyword chips */}
                 <div className="flex flex-wrap gap-1.5">
                   {r.keywords.map((kw) => (
                     <span
                       key={kw}
-                      className="inline-flex items-center px-2.5 py-0.5 rounded-md bg-rose-50 text-rose-500 text-xs font-medium border border-rose-100"
+                      className="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium"
+                      style={{
+                        background: "rgba(160,177,221,0.15)",
+                        border: "1px solid rgba(160,177,221,0.4)",
+                        color: "#2F4C73",
+                      }}
                     >
                       {kw}
                     </span>
@@ -76,8 +75,8 @@ export default function ResearchSection() {
 
       </section>
 
-      {/* Mountain divider → slate-50 Publications */}
-      <MountainDivider fill="rgb(248 250 252)" />
+      {/* Mountain divider → Ivory Dust Publications */}
+      <MountainDivider fill="#F0EDE5" />
     </div>
   );
 }

@@ -30,12 +30,13 @@ const iconMap: Record<CareerItem["type"], React.ReactNode> = {
   ),
 };
 
-const colorMap: Record<CareerItem["type"], string> = {
-  education:   "bg-blue-800/60 text-blue-200",
-  work:        "bg-slate-700/60 text-slate-200",
-  research:    "bg-indigo-800/60 text-indigo-200",
-  award:       "bg-amber-700/60 text-amber-200",
-  scholarship: "bg-rose-800/60 text-rose-200",
+// icon badge colors on dark navy bg
+const colorMap: Record<CareerItem["type"], React.CSSProperties> = {
+  education:   { background: "rgba(47,76,115,0.7)",  color: "#A0B1DD" },
+  work:        { background: "rgba(47,76,115,0.5)",  color: "#F0EDE5" },
+  research:    { background: "rgba(47,76,115,0.7)",  color: "#A0B1DD" },
+  award:       { background: "rgba(217,179,67,0.25)", color: "#D9B343" },
+  scholarship: { background: "rgba(217,179,67,0.20)", color: "#D9B343" },
 };
 
 const leftGroups: { type: CareerItem["type"]; label: string }[] = [
@@ -53,19 +54,20 @@ function Timeline({ type }: { type: CareerItem["type"] }) {
   const items = careers.filter((c) => c.type === type);
   if (items.length === 0) return null;
   return (
-    <ol className="relative border-l border-blue-800/40">
+    <ol className="relative border-l" style={{ borderColor: "rgba(160,177,221,0.25)" }}>
       {items.map((item, i) => (
         <li key={i} className="mb-6 ml-6">
           <span
-            className={`absolute -left-3 flex items-center justify-center w-6 h-6 rounded-full ${colorMap[type]}`}
+            className="absolute -left-3 flex items-center justify-center w-6 h-6 rounded-full"
+            style={colorMap[type]}
           >
             {iconMap[type]}
           </span>
-          <p className="text-xs text-blue-400 mb-0.5">{item.period}</p>
+          <p className="text-xs mb-0.5" style={{ color: "#A0B1DD" }}>{item.period}</p>
           <p className="font-medium text-white leading-snug">{item.title}</p>
-          <p className="text-sm text-slate-400">{item.organization}</p>
+          <p className="text-sm" style={{ color: "rgba(160,177,221,0.65)" }}>{item.organization}</p>
           {item.description && (
-            <p className="text-xs text-slate-500 mt-0.5">{item.description}</p>
+            <p className="text-xs mt-0.5" style={{ color: "rgba(160,177,221,0.5)" }}>{item.description}</p>
           )}
         </li>
       ))}
@@ -76,23 +78,24 @@ function Timeline({ type }: { type: CareerItem["type"] }) {
 export default function CareerSection() {
   return (
     <div>
-      <section id="career" className="relative overflow-hidden py-16" style={{ background: "#030a1a" }}>
+      <section id="career" className="relative overflow-hidden py-16" style={{ background: "#223F59" }}>
 
         {/* Decorative elements */}
         <MoonDecoration
           className="absolute -top-10 right-0 w-72 h-72 opacity-30"
-          bgColor="#030a1a"
-          glowColor="rgb(60 140 220 / 0.2)"
+          bgColor="#223F59"
+          glowColor="rgba(160,177,221,0.2)"
         />
-        <StarSparkle className="absolute top-12 left-16 w-4 h-4 text-pink-400 opacity-60" />
-        <StarSparkle className="absolute top-24 right-40 w-3 h-3 text-amber-400 opacity-50" />
-        <StarSparkle className="absolute bottom-20 left-1/3 w-3 h-3 text-blue-300 opacity-50" />
-        <StarSparkle className="absolute bottom-32 right-20 w-5 h-5 text-pink-300 opacity-40" />
-        <DotCluster className="absolute bottom-12 left-8 w-28 h-28 text-blue-400/15" />
+        <StarSparkle className="absolute top-12 left-16 w-4 h-4 opacity-50" style={{ color: "#D9B343" }} />
+        <StarSparkle className="absolute top-24 right-40 w-3 h-3 opacity-40" style={{ color: "#D9B343" }} />
+        <StarSparkle className="absolute bottom-20 left-1/3 w-3 h-3 opacity-40" style={{ color: "#A0B1DD" }} />
+        <StarSparkle className="absolute bottom-32 right-20 w-5 h-5 opacity-30" style={{ color: "#A0B1DD" }} />
+        <DotCluster className="absolute bottom-12 left-8 w-28 h-28" style={{ color: "rgba(160,177,221,0.12)" }} />
 
         <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <p className="text-xs uppercase tracking-widest text-pink-400 font-medium mb-2 flex items-center gap-2">
-            <span className="w-6 h-px bg-pink-400 inline-block" />
+          <p className="text-xs uppercase tracking-widest font-medium mb-2 flex items-center gap-2"
+            style={{ color: "#D9B343" }}>
+            <span className="w-6 h-px inline-block" style={{ background: "#D9B343" }} />
             経歴・受賞・奨学金
           </p>
           <h2
@@ -103,29 +106,26 @@ export default function CareerSection() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-10">
-
             <div className="space-y-10">
               {leftGroups.map(({ type, label }) => (
                 <div key={type}>
-                  <h3 className="font-semibold text-blue-300 mb-5 text-sm uppercase tracking-wider">
+                  <h3 className="font-semibold mb-5 text-sm uppercase tracking-wider" style={{ color: "#A0B1DD" }}>
                     {label}
                   </h3>
                   <Timeline type={type} />
                 </div>
               ))}
             </div>
-
             <div className="space-y-10">
               {rightGroups.map(({ type, label }) => (
                 <div key={type}>
-                  <h3 className="font-semibold text-blue-300 mb-5 text-sm uppercase tracking-wider">
+                  <h3 className="font-semibold mb-5 text-sm uppercase tracking-wider" style={{ color: "#A0B1DD" }}>
                     {label}
                   </h3>
                   <Timeline type={type} />
                 </div>
               ))}
             </div>
-
           </div>
         </div>
 

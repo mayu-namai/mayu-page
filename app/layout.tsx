@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className="scroll-smooth">
       <body
-        className={`${geist.variable} ${notoSansJP.variable} ${cormorant.variable} font-sans bg-slate-50 text-slate-800 antialiased`}
+        className={`${geist.variable} ${notoSansJP.variable} ${cormorant.variable} font-sans bg-[#F0EDE5] text-[#223F59] antialiased`}
       >
         <Navbar />
         <main className="min-h-screen">{children}</main>
