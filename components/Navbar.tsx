@@ -5,31 +5,23 @@ import Link from "next/link";
 import { profile } from "@/lib/data";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#research", label: "Research" },
+  { href: "#about",        label: "About" },
+  { href: "#research",     label: "Research" },
   { href: "#publications", label: "Publications" },
-  { href: "#career", label: "CV" },
-  { href: "#contact", label: "Contact" },
+  { href: "#career",       label: "CV" },
+  { href: "#contact",      label: "Contact" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <header
-      className="fixed top-0 inset-x-0 z-50 bg-[rgba(34,63,89,0.97)] backdrop-blur shadow-sm shadow-[#223F59]/40"
-    >
+    <header className="fixed top-0 inset-x-0 z-50 bg-[rgba(240,237,229,0.97)] backdrop-blur shadow-sm shadow-[#D9B343]/15">
       <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="font-semibold text-white hover:text-[#D9B343] transition-colors"
+          className="font-semibold transition-colors"
+          style={{ color: "#D9B343" }}
         >
           {profile.nameEn}
         </Link>
@@ -40,7 +32,8 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm text-slate-300 hover:text-[#D9B343] transition-colors"
+                className="text-sm transition-colors hover:opacity-70"
+                style={{ color: "#D9B343" }}
               >
                 {link.label}
               </a>
@@ -50,7 +43,8 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 text-slate-300"
+          className="md:hidden p-2"
+          style={{ color: "#D9B343" }}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="メニューを開く"
         >
@@ -62,13 +56,15 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#223F59] border-t border-[#A0B1DD]/20 px-6 py-4">
+        <div className="md:hidden border-t px-6 py-4"
+          style={{ background: "#F0EDE5", borderColor: "rgba(217,179,67,0.3)" }}>
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm text-slate-300 hover:text-[#D9B343] transition-colors"
+                  className="text-sm transition-colors hover:opacity-70"
+                  style={{ color: "#D9B343" }}
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}

@@ -23,7 +23,7 @@ export default function HeroSection() {
               {/* Japanese name */}
               <h1
                 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-1 leading-tight"
-                style={{ fontFamily: "var(--font-noto), sans-serif", color: "#223F59" }}
+                style={{ fontFamily: "var(--font-noto), sans-serif", color: "#D9B343" }}
               >
                 {profile.name}
               </h1>
@@ -31,7 +31,7 @@ export default function HeroSection() {
               {/* English name */}
               <p
                 className="text-xl md:text-2xl mb-8 tracking-[0.18em]"
-                style={{ fontFamily: "var(--font-display), Georgia, serif", color: "#2F4C73" }}
+                style={{ fontFamily: "var(--font-display), Georgia, serif", color: "#D9B343" }}
               >
                 {profile.nameEn}
               </p>
