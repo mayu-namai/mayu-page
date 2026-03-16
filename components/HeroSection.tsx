@@ -1,26 +1,12 @@
 import { profile } from "@/lib/data";
-import { SawtoothDivider, CosmicSakuraIllustration } from "@/components/Decorations";
+import { CosmicSakuraIllustration } from "@/components/Decorations";
 
 export default function HeroSection() {
   return (
     <div>
-      {/* ── Full-width hero banner ── */}
-      {/* Save the cherry blossom landscape image as public/hero.jpg */}
-      <div className="relative h-[440px] md:h-[560px] overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/hero.jpg"
-          alt=""
-          className="w-full h-full object-cover object-center"
-        />
-        {/* Darkening gradient at the top so Navbar text is readable */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
-        {/* Sawtooth cut — white teeth eat into the bottom of the image */}
-        <SawtoothDivider fill="white" />
-      </div>
-
       {/* ── About / Profile section ── */}
-      <section id="about" className="bg-white py-14 md:py-20">
+      {/* pt-16 accounts for the fixed navbar height */}
+      <section id="about" className="bg-white pt-24 pb-14 md:pt-28 md:pb-20">
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
 

@@ -24,9 +24,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[rgba(3,10,26,0.95)] backdrop-blur shadow-sm shadow-blue-950/30" : "bg-transparent"
-      }`}
+      className="fixed top-0 inset-x-0 z-50 bg-[rgba(3,10,26,0.97)] backdrop-blur shadow-sm shadow-blue-950/30"
     >
       <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
