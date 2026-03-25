@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { researches } from "@/lib/data";
 import { useLang } from "@/contexts/LanguageContext";
@@ -23,11 +24,13 @@ export default function ResearchSection() {
           className="fixed inset-0 z-50 backdrop-blur-md bg-white/30 flex items-center justify-center"
           onClick={() => setLightboxOpen(false)}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={active.image ?? "/hero.jpg"}
             alt={active.titleEn ?? active.title}
+            width={1600}
+            height={900}
             className="max-w-[90vw] max-h-[90vh] object-contain"
+            style={{ width: "auto", height: "auto", maxWidth: "90vw", maxHeight: "90vh" }}
             onClick={(e) => e.stopPropagation()}
           />
           <button
@@ -67,12 +70,12 @@ export default function ResearchSection() {
             onClick={() => setLightboxOpen(true)}
             aria-label="Enlarge image"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               key={activeIndex}
               src={active.image ?? "/hero.jpg"}
               alt={active.titleEn ?? active.title}
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </button>
 
@@ -148,12 +151,12 @@ export default function ResearchSection() {
               onMouseLeave={() => setHoverIndex(null)}
               onClick={() => setSelectedIndex(i)}
             >
-              <div className={`aspect-[5/3] overflow-hidden bg-white transition-opacity duration-200 ${activeIndex === i ? "opacity-100" : "opacity-70"}`}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+              <div className={`aspect-[5/3] overflow-hidden bg-white transition-opacity duration-200 relative ${activeIndex === i ? "opacity-100" : "opacity-70"}`}>
+                <Image
                   src={r.image ?? "/hero.jpg"}
                   alt={r.titleEn ?? r.title}
-                  className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+                  fill
+                  className="object-contain transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-[#464043]/30 flex items-end p-3 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-white text-sm font-medium" style={{ fontFamily: "var(--font-display), Georgia, serif" }}>

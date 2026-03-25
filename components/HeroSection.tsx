@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { profile } from "@/lib/data";
 import { useLang } from "@/contexts/LanguageContext";
 
@@ -46,12 +47,12 @@ export default function HeroSection() {
         </div>
 
         {/* Right: illustration */}
-        <div className="w-64 h-64 md:w-80 md:h-80 shrink-0 rounded-full overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+        <div className="w-64 h-64 md:w-80 md:h-80 shrink-0 rounded-full overflow-hidden relative">
+          <Image
             src="/icon_original.png"
             alt="illustration"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
         </div>
 
