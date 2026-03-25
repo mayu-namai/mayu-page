@@ -34,11 +34,11 @@ function sectionIcon(id: SectionId) {
     case "education":    return <svg {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>;
     case "experience":   return <svg {...props}><rect x="2" y="7" width="20" height="14" rx="2"/><path strokeLinecap="round" d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>;
     case "publications": return <svg {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>;
-    case "presentations":return <svg {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/></svg>;
-    case "projects":     return <svg {...props}><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>;
-    case "awards":       return <svg {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>;
+    case "presentations":return <svg {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>;
+    case "projects":     return <svg {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.819m2.562-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>;
+    case "awards":       return <svg {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M6 3h12v7a6 6 0 01-12 0V3zM4 3h2M18 3h2M4 5H2v2a4 4 0 004 4M20 5h2v2a4 4 0 01-4 4M12 16v3M9 21h6"/></svg>;
     case "scholarships": return <svg {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>;
-    case "skills":       return <svg {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>;
+    case "skills":       return <svg {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>;
   }
 }
 
@@ -54,6 +54,13 @@ export default function CareerSection() {
   const [active, setActive] = useState<SectionId>("profile");
   const [pubTab, setPubTab] = useState<"peer" | "non-peer">("peer");
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [pdfToast, setPdfToast] = useState(false);
+
+  function handlePdfClick(e: React.MouseEvent) {
+    e.preventDefault();
+    setPdfToast(true);
+    setTimeout(() => setPdfToast(false), 2500);
+  }
   const { lang } = useLang();
   const en = lang === "en";
 
@@ -72,7 +79,7 @@ export default function CareerSection() {
     const title   = en ? (pub.titleEn   ?? pub.title)   : pub.title;
     const citation = en ? (pub.citationEn ?? pub.citation) : pub.citation;
     return (
-      <li className="flex gap-3 leading-[1.85] text-gray-500">
+      <li className="flex gap-3 leading-[1.85] text-xs min-[480px]:text-sm text-gray-500">
         <span className="shrink-0 tabular-nums text-gray-400 w-5 text-right pt-px">{idx + 1}.</span>
         <span>
           {authors.map((a, j) => (
@@ -116,8 +123,13 @@ export default function CareerSection() {
             ? "Selected publications, presentations, awards, and research experience."
             : "論文・発表・受賞・研究経験をまとめたものです．"}
         </p>
-        <div className="flex justify-end">
-          <a href="#" className="text-[13px] min-[480px]:text-sm text-gray-500 hover:text-[#464043] transition-colors flex items-center gap-1">
+        <div className="flex justify-end items-center gap-3">
+          {pdfToast && (
+            <span className="text-[13px] min-[480px]:text-sm text-gray-400">
+              {en ? "Coming soon." : "準備中です．"}
+            </span>
+          )}
+          <a href="#" onClick={handlePdfClick} className="text-[13px] min-[480px]:text-sm text-gray-500 hover:text-[#464043] transition-colors flex items-center gap-1">
             Download PDF <span>→</span>
           </a>
         </div>
@@ -313,16 +325,16 @@ export default function CareerSection() {
                 {researches.map((proj: (typeof researches)[0], i: number) => (
                   <div key={i} className="border-b border-gray-100 pb-5 last:border-0">
                     {proj.slug ? (
-                      <a href={`/projects/${proj.slug}`} className="font-medium text-[#464043] hover:underline leading-snug">
+                      <a href={`/projects/${proj.slug}`} className="text-sm min-[480px]:text-base font-medium text-[#464043] hover:underline leading-snug">
                         {en ? proj.titleEn : proj.title}
                       </a>
                     ) : (
-                      <p className="font-medium text-[#464043] leading-snug">
+                      <p className="text-sm min-[480px]:text-base font-medium text-[#464043] leading-snug">
                         {en ? proj.titleEn : proj.title}
                       </p>
                     )}
                     {proj.description && (
-                      <p className="text-gray-500 mt-1">
+                      <p className="text-xs min-[480px]:text-sm text-gray-500 mt-1">
                         {en ? (proj.descriptionEn ?? proj.description) : proj.description}
                       </p>
                     )}

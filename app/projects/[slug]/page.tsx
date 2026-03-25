@@ -28,7 +28,7 @@ export default function ProjectPage({
 
         <Link
           href="/#research"
-          className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#464043] transition-colors mb-10"
+          className="inline-flex items-center gap-1 text-xs min-[480px]:text-sm text-gray-400 hover:text-[#464043] transition-colors mb-10"
         >
           ← Projects
         </Link>
@@ -45,20 +45,20 @@ export default function ProjectPage({
         )}
 
         <h1
-          className="text-2xl md:text-3xl font-normal text-[#464043] mb-6"
+          className="text-xl min-[480px]:text-3xl font-normal text-[#464043] mb-6"
           style={{ fontFamily: '"Yu Mincho", "游明朝", "YuMincho", serif' }}
         >
           {title}
         </h1>
 
-        <p className="text-sm text-gray-500 leading-[1.9] mb-10 whitespace-pre-line">
+        <p className="text-xs min-[480px]:text-sm text-gray-500 leading-[1.9] mb-10 whitespace-pre-line">
           {description}
         </p>
 
         {project.keywords.length > 0 && (
           <div className="mb-10">
-            <p className="text-sm font-semibold text-[#464043] mb-2">Keywords</p>
-            <p className="text-sm text-gray-500 flex flex-wrap gap-x-1">
+            <p className="text-xs min-[480px]:text-sm font-semibold text-[#464043] mb-2">Keywords</p>
+            <p className="text-xs min-[480px]:text-sm text-gray-500 flex flex-wrap gap-x-1">
               {project.keywords.map((kw, i) => (
                 <span key={kw}>
                   {kw}{i < project.keywords.length - 1 && <span className="mx-1 text-gray-300">·</span>}
@@ -68,14 +68,10 @@ export default function ProjectPage({
           </div>
         )}
 
-        <div className="flex items-center gap-6 text-sm text-gray-500">
+        <div className="flex items-center gap-6 text-xs min-[480px]:text-sm text-gray-500">
           {project.paper
             ? <a href={project.paper} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors">Paper →</a>
             : <span className="text-gray-300">Paper</span>
-          }
-          {project.project
-            ? <a href={project.project} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors">Project →</a>
-            : <span className="text-gray-300">Project</span>
           }
         </div>
 
@@ -84,7 +80,7 @@ export default function ProjectPage({
           <div className="mt-16">
             <div className="flex items-center gap-4 mb-10">
               <div className="flex-1 h-px bg-gray-300" />
-              <h2 className="text-2xl md:text-3xl font-normal text-[#464043] whitespace-nowrap"
+              <h2 className="text-xl min-[480px]:text-3xl font-normal text-[#464043] whitespace-nowrap"
                 style={{ fontFamily: '"Yu Mincho", "游明朝", "YuMincho", serif' }}>
                 Contributions
               </h2>
@@ -96,13 +92,13 @@ export default function ProjectPage({
           <div className="mt-16">
             <div className="flex items-center gap-4 mb-10">
               <div className="flex-1 h-px bg-gray-300" />
-              <h2 className="text-2xl md:text-3xl font-normal text-[#464043] whitespace-nowrap"
+              <h2 className="text-xl min-[480px]:text-3xl font-normal text-[#464043] whitespace-nowrap"
                 style={{ fontFamily: '"Yu Mincho", "游明朝", "YuMincho", serif' }}>
                 Grants
               </h2>
               <div className="flex-1 h-px bg-gray-300" />
             </div>
-            <ul className="space-y-3 text-sm leading-[1.85]" style={{ fontFamily: "var(--font-noto-serif-jp), serif", fontWeight: 400 }}>
+            <ul className="space-y-3 text-xs min-[480px]:text-sm leading-[1.85]" style={{ fontFamily: "var(--font-noto-serif-jp), serif", fontWeight: 400 }}>
               {[
                 { period: "2024–2029", label: en ? "JST Adopting Sustainable Partnerships for Innovative Research Ecosystem (ASPIRE), No. JPMJAP2401" : "JST 先端国際共同研究推進事業（ASPIRE），No. JPMJAP2401", url: "https://projectdb.jst.go.jp/grant/JST-PROJECT-24021287/" },
                 { period: "2023–2026", label: en ? "Grant-in-Aid for Challenging Research (Exploratory) \u201cAutomatic generation of vignette illustrations\u201d, No. 23K18468" : "挑戦的研究（萌芽）「ヴィネットイラストの自動生成」，No. 23K18468", url: "https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-23K18468/" },
@@ -127,7 +123,7 @@ export default function ProjectPage({
         )}
 
         <div className="mt-16 flex justify-end">
-          <Link href="/" className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#464043] transition-colors">
+          <Link href="/" className="inline-flex items-center gap-1 text-xs min-[480px]:text-sm text-gray-400 hover:text-[#464043] transition-colors">
             Home →
           </Link>
         </div>

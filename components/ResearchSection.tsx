@@ -78,20 +78,25 @@ export default function ResearchSection() {
 
           {/* Description — all items stacked in same grid cell; only active is visible */}
           <div style={{ display: "grid" }}>
-            {researches.map((r, i) => (
-              <Link
+            {researches.map((r, i) => {
+              const Wrapper = r.hasPage ? Link : "div";
+              const wrapperProps = r.hasPage
+                ? { href: `/projects/${r.slug}` }
+                : {};
+              return (
+              <Wrapper
                 key={i}
-                href={`/projects/${r.slug}`}
+                {...(wrapperProps as any)}
                 style={{ gridColumn: "1 / 2", gridRow: "1 / 2" }}
-                className={`flex flex-col px-7 pt-4 pb-5 text-[13px] min-[480px]:text-sm ${
+                className={`flex flex-col px-7 pt-4 pb-5 text-xs min-[480px]:text-sm ${
                   activeIndex === i
-                    ? "hover:bg-gray-50 transition-colors"
+                    ? `${r.hasPage ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`
                     : "invisible pointer-events-none select-none"
                 }`}
               >
                 <div className="mb-3">
                   <h3
-                    className="text-2xl md:text-3xl font-normal text-[#464043] mb-1"
+                    className="text-lg min-[480px]:text-3xl font-normal text-[#464043] mb-1"
                     style={{ fontFamily: "var(--font-display), Georgia, serif" }}
                   >
                     {en ? (r.titleEn ?? r.title) : r.title}
@@ -122,11 +127,14 @@ export default function ResearchSection() {
                   <span className="mx-3 text-gray-300">|</span>
                   {r.project
                     ? <a href={r.project} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors" onClick={(e) => e.stopPropagation()}>Project</a>
+                    : r.hasPage
+                    ? <span className="text-gray-500">Project</span>
                     : <span className="text-gray-300">Project</span>
                   }
                 </div>
-              </Link>
-            ))}
+              </Wrapper>
+              );
+            })}
           </div>
         </div>
 

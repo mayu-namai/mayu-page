@@ -147,6 +147,7 @@ export type Research = {
   image?: string;       // public/ 以下のパス。省略時は "/hero.jpg"
   paper?: string;
   project?: string;
+  hasPage?: boolean;    // 詳細ページが存在する場合 true
 };
 
 export const researches: Research[] = [
@@ -161,6 +162,7 @@ export const researches: Research[] = [
       "Accepts an anime video as input, generates a vignette illustration that summarizes the content and reflects the world of the video. In semiautomatic mode, illustrations reflecting user preferences can be generated semiautomatically; in automatic mode, AI generates illustrations automatically.",
     keywords: ["Video Summarization", "Media Conversion", "Machine Learning", "World Perspective Visualization"],
     image: "/p1_vignette.png",
+    hasPage: true,
   },
   // ── 以下、追加予定のプロジェクト ──────────────────────────
   {

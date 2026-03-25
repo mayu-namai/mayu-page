@@ -25,6 +25,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" className={`scroll-smooth ${notoSerifJP.variable}`}>
+      <head>
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="c5ae13bf-b021-42f8-80b1-3458ab16d5c5"></script>
+      </head>
       <body
         className="antialiased"
         style={{

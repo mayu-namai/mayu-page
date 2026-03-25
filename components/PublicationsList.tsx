@@ -97,7 +97,7 @@ export function PublicationEntry({ pub, index, en }: { pub: Publication; index: 
         {pub.note && (
           pub.noteIsAward
             ? <span className="ml-2 inline-block text-xs font-medium text-[#CB959F]" title={pub.note}>★ Award</span>
-            : <span className="ml-2 inline-block text-xs font-medium px-2 py-0.5 border border-gray-300 text-gray-500">{pub.note}</span>
+            : <span className="ml-2 inline-block text-[10px] min-[480px]:text-xs font-medium px-2 py-0.5 border border-gray-300 text-gray-500">{pub.note}</span>
         )}
         {(pub.doi || pub.arxiv || pub.pdf || pub.link) && (
           <span className="inline-flex gap-2 ml-2">
@@ -124,9 +124,9 @@ export default function PublicationsList() {
         return (
           <div key={type}>
             <div className="flex items-center gap-2.5 mb-5 pl-4 border-l-4 border-[#464043]">
-              <h3 className="text-base font-bold tracking-wide text-[#464043]">{en ? labelEn : labelJa}</h3>
+              <h3 className="text-sm min-[480px]:text-base font-bold tracking-wide text-[#464043]">{en ? labelEn : labelJa}</h3>
               {badge && (
-                <span className="text-xs px-2.5 py-0.5 border border-gray-400 text-gray-500 font-medium">
+                <span className="text-[10px] min-[480px]:text-xs px-2.5 py-0.5 border border-gray-400 text-gray-500 font-medium">
                   {badge}
                 </span>
               )}
@@ -146,7 +146,7 @@ export default function PublicationsList() {
         return (
           <div>
             <div className="flex items-center gap-2.5 mb-5 pl-4 border-l-4 border-[#464043]">
-              <h3 className="text-base font-bold tracking-wide text-[#464043]">
+              <h3 className="text-sm min-[480px]:text-base font-bold tracking-wide text-[#464043]">
                 {en ? "Awards" : "受賞"}
               </h3>
             </div>
