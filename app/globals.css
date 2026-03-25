@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-noto), var(--font-geist), system-ui, sans-serif;
+  --font-sans: system-ui, sans-serif;
+  --font-display: "Yu Mincho", "游明朝", "YuMincho", "游明朝体", serif;
 }
+
 
 /* ── Japanese typography ─────────────────────────────────
    "palt": proportional kana — reduces excess space around Japanese
    characters so text feels tighter and more natural               */
 html {
   font-feature-settings: "palt" 1;
+  scroll-behavior: auto;
 }
 
-/* Japanese body text: comfortable line-height + slight tracking */
-.prose-ja {
-  line-height: 1.9;
-  letter-spacing: 0.01em;
-}
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+

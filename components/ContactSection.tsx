@@ -1,69 +1,55 @@
+"use client";
+
 import { profile } from "@/lib/data";
-import { StarSparkle, CherryBranch, CosmicSakuraIllustration } from "@/components/Decorations";
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function ContactSection() {
+  const { lang } = useLang();
+  const en = lang === "en";
+
   return (
-    <section id="contact" className="relative py-20 bg-white overflow-hidden">
+    <section id="contact" className="py-20 bg-[#FDFAFC]">
+      <div className="max-w-4xl mx-auto px-6 text-center">
 
-      {/* Decorative elements */}
-      <StarSparkle className="absolute top-10 right-20 w-4 h-4 opacity-40" style={{ color: "#D9B343" }} />
-      <StarSparkle className="absolute bottom-16 left-16 w-3 h-3 opacity-35" style={{ color: "#A0B1DD" }} />
-      <CherryBranch className="absolute bottom-4 right-4 w-48 h-36 opacity-20" style={{ color: "#D9B343" }} />
+        <div className="flex items-center gap-4 mb-12">
+          <div className="flex-1 h-px bg-gray-300" />
+          <h2 className="text-3xl md:text-4xl font-normal text-[#464043] whitespace-nowrap"
+            style={{ fontFamily: "var(--font-display), Georgia, serif" }}>
+            Contact
+          </h2>
+          <div className="flex-1 h-px bg-gray-300" />
+        </div>
 
-      <div className="max-w-5xl mx-auto px-6">
-        <p className="text-xs uppercase tracking-widest font-medium mb-2 flex items-center gap-2"
-          style={{ color: "#D9B343" }}>
-          <span className="w-6 h-px inline-block" style={{ background: "#D9B343" }} />
-          お問い合わせ
+        <p className="text-[13px] min-[480px]:text-sm text-gray-500 mb-10">
+          {en
+            ? "Feel free to reach out for any inquiries."
+            : "各種お問い合わせはお気軽にご連絡ください．"}
         </p>
-        <h2
-          className="text-5xl font-bold mb-8"
-          style={{ fontFamily: "var(--font-display), Georgia, serif", color: "#223F59" }}
-        >
-          Contact
-        </h2>
 
-        <div className="grid md:grid-cols-2 gap-6 items-stretch">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12">
 
-          {/* Left: Contact info */}
-          <div className="rounded-2xl p-8" style={{ background: "#F0EDE5" }}>
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                  style={{ color: "#A0B1DD" }}>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <a
-                  href={`mailto:${profile.email}`}
-                  className="text-sm hover:underline"
-                  style={{ color: "#2F4C73" }}
-                >
-                  {profile.email}
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                  style={{ color: "#A0B1DD" }}>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-                <span className="text-sm" style={{ color: "#2F4C73" }}>
-                  {profile.affiliation}
-                </span>
-              </div>
-            </div>
-          </div>
+          <a href={`mailto:${profile.email}`}
+            className="flex items-center gap-2.5 text-[13px] min-[480px]:text-sm text-gray-500 hover:text-[#464043] transition-colors group">
+            <svg className="w-4 h-4 shrink-0 text-[#464043]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+              <path strokeLinecap="round" strokeLinejoin="round"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            {profile.email}
+          </a>
 
-          {/* Right: Decorative illustration panel */}
-          <div className="relative rounded-2xl overflow-hidden min-h-[180px]">
-            <CosmicSakuraIllustration />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#223F59]/70 via-[#2F4C73]/30 to-transparent" />
-            <div className="absolute bottom-6 left-6">
-              <p className="text-sm font-medium" style={{ color: "#A0B1DD" }}>Get in touch</p>
-              <p className="text-xs mt-0.5" style={{ color: "rgba(240,237,229,0.6)" }}>{profile.affiliation}</p>
-            </div>
-          </div>
+          {profile.twitter && (
+            <a
+              href={`https://x.com/${profile.twitter.replace(/^@/, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2.5 text-[13px] min-[480px]:text-sm text-gray-500 hover:text-[#464043] transition-colors"
+            >
+              <svg className="w-4 h-4 shrink-0 text-[#464043]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              {profile.twitter}
+            </a>
+          )}
 
         </div>
       </div>

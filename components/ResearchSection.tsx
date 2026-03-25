@@ -1,82 +1,165 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
 import { researches } from "@/lib/data";
-import { MountainDivider, StarSparkle } from "@/components/Decorations";
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function ResearchSection() {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const activeIndex = hoverIndex ?? selectedIndex;
+  const { lang } = useLang();
+  const en = lang === "en";
+  const active = researches[activeIndex];
+
   return (
-    <div>
-      <section id="research" className="relative overflow-hidden py-16 md:py-24" style={{ background: "#D9B343" }}>
+    <section id="research" className="py-16 md:py-24 bg-[#FDFAFC]">
 
-        {/* Decorative stars */}
-        <StarSparkle className="absolute top-8 right-12 w-4 h-4 opacity-50" style={{ color: "#D9B343" }} />
-        <StarSparkle className="absolute top-16 left-8 w-3 h-3 opacity-40" style={{ color: "#A0B1DD" }} />
-        <StarSparkle className="absolute bottom-12 right-1/4 w-3 h-3 opacity-40" style={{ color: "#D9B343" }} />
-
-        {/* ── Centered section heading ── */}
-        <div className="text-center mb-14 px-6">
-          <h2
-            className="text-5xl md:text-6xl font-bold tracking-widest uppercase mb-2"
-            style={{ fontFamily: "var(--font-display), Georgia, serif", color: "#FFFFFF" }}
+      {/* Lightbox */}
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-50 backdrop-blur-md bg-white/30 flex items-center justify-center"
+          onClick={() => setLightboxOpen(false)}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={active.image ?? "/hero.jpg"}
+            alt={active.titleEn ?? active.title}
+            className="max-w-[90vw] max-h-[90vh] object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-[#464043]/70 text-white text-xl leading-none hover:bg-[#464043] transition-colors"
+            onClick={() => setLightboxOpen(false)}
           >
-            Research
+            ×
+          </button>
+        </div>
+      )}
+
+      <div className="max-w-4xl mx-auto px-6 mb-10">
+        <div className="flex items-center gap-4">
+          <div className="flex-1 h-px bg-gray-300" />
+          <h2
+            className="text-3xl md:text-4xl font-normal text-[#464043] whitespace-nowrap"
+            style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+          >
+            Projects
           </h2>
-          <p className="text-sm tracking-wider" style={{ color: "rgba(255,255,255,0.75)" }}>研究テーマ・プロジェクト</p>
-          <div className="w-10 h-px mx-auto mt-5" style={{ background: "rgba(255,255,255,0.5)" }} />
+          <div className="flex-1 h-px bg-gray-300" />
+        </div>
+        <p className="text-[13px] min-[480px]:text-sm text-gray-500 mt-4 text-center">
+          {en
+            ? "Selected projects I have worked on, including research prototypes, industry projects, and personal works."
+            : "研究・企業プロジェクト・個人制作を含む，これまでに関わったプロジェクトを掲載しています．"}
+        </p>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6">
+        {/* Featured area */}
+        <div className="mb-4 shadow-[6px_6px_20px_0px_rgba(70,64,67,0.16)]">
+          {/* Image — click to enlarge */}
+          <button
+            className="w-full bg-white overflow-hidden cursor-zoom-in relative"
+            style={{ aspectRatio: "1983/582" }}
+            onClick={() => setLightboxOpen(true)}
+            aria-label="Enlarge image"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              key={activeIndex}
+              src={active.image ?? "/hero.jpg"}
+              alt={active.titleEn ?? active.title}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </button>
+
+          {/* Description — all items stacked in same grid cell; only active is visible */}
+          <div style={{ display: "grid" }}>
+            {researches.map((r, i) => (
+              <Link
+                key={i}
+                href={`/projects/${r.slug}`}
+                style={{ gridColumn: "1 / 2", gridRow: "1 / 2" }}
+                className={`flex flex-col px-7 pt-4 pb-5 text-[13px] min-[480px]:text-sm ${
+                  activeIndex === i
+                    ? "hover:bg-gray-50 transition-colors"
+                    : "invisible pointer-events-none select-none"
+                }`}
+              >
+                <div className="mb-3">
+                  <h3
+                    className="text-2xl md:text-3xl font-normal text-[#464043] mb-1"
+                    style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+                  >
+                    {en ? (r.titleEn ?? r.title) : r.title}
+                  </h3>
+                  <p className="text-gray-500 leading-relaxed mt-3 mb-4">
+                    {en ? (r.descriptionEn ?? r.description) : r.description}
+                  </p>
+
+                  {r.keywords.length > 0 && (
+                    <div className="text-gray-500">
+                      <p className="font-medium text-[#464043] mb-1">Keywords <span className="text-gray-300 font-normal">|</span></p>
+                      <p className="flex flex-wrap gap-x-1">
+                        {r.keywords.map((kw, j) => (
+                          <span key={kw}>
+                            {kw}{j < r.keywords.length - 1 && <span className="mx-1 text-gray-300">·</span>}
+                          </span>
+                        ))}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex items-center text-gray-500 mt-auto pt-3" onClick={(e) => e.preventDefault()}>
+                  {r.paper
+                    ? <a href={r.paper} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors" onClick={(e) => e.stopPropagation()}>Paper</a>
+                    : <span className="text-gray-300">Paper</span>
+                  }
+                  <span className="mx-3 text-gray-300">|</span>
+                  {r.project
+                    ? <a href={r.project} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors" onClick={(e) => e.stopPropagation()}>Project</a>
+                    : <span className="text-gray-300">Project</span>
+                  }
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
 
-        {/* ── Alternating image/text cards ── */}
-        <div className="max-w-5xl mx-auto px-6 space-y-4">
+        {/* Project grid */}
+        <div className="grid grid-cols-3 gap-2 mb-6">
           {researches.map((r, i) => (
             <div
               key={i}
-              className={`flex flex-col md:flex-row ${i % 2 === 1 ? "md:flex-row-reverse" : ""} overflow-hidden`}
-              style={{ background: "#FFFFFF", border: "1px solid rgba(217,179,67,0.2)" }}
+              className="relative cursor-pointer group"
+              onMouseEnter={() => setHoverIndex(i)}
+              onMouseLeave={() => setHoverIndex(null)}
+              onClick={() => setSelectedIndex(i)}
             >
-              {/* Image half */}
-              <div className="md:w-1/2 h-56 md:h-72 relative overflow-hidden shrink-0">
+              <div className={`aspect-[5/3] overflow-hidden bg-white transition-opacity duration-200 ${activeIndex === i ? "opacity-100" : "opacity-70"}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={r.image ?? "/hero.jpg"}
-                  alt={r.title}
-                  className="w-full h-full object-cover"
+                  alt={r.titleEn ?? r.title}
+                  className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
                 />
-              </div>
-
-              {/* Text half */}
-              <div className="flex-1 p-8 md:p-10 flex flex-col justify-start">
-                <h3
-                  className="font-bold text-xl leading-snug mb-3"
-                  style={{ fontFamily: "var(--font-noto), sans-serif", color: "#223F59" }}
-                >
-                  {r.title}
-                </h3>
-                <p className="text-sm leading-[1.85] mb-5 flex-1" style={{ color: "#2F4C73", opacity: 0.75 }}>
-                  {r.description}
-                </p>
-                {/* Keyword chips */}
-                <div className="flex flex-wrap gap-1.5">
-                  {r.keywords.map((kw) => (
-                    <span
-                      key={kw}
-                      className="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium"
-                      style={{
-                        background: "rgba(160,177,221,0.15)",
-                        border: "1px solid rgba(160,177,221,0.4)",
-                        color: "#2F4C73",
-                      }}
-                    >
-                      {kw}
-                    </span>
-                  ))}
+                <div className="absolute inset-0 bg-[#464043]/30 flex items-end p-3 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-white text-sm font-medium" style={{ fontFamily: "var(--font-display), Georgia, serif" }}>
+                    {r.label ?? (en ? (r.titleEn ?? r.title) : r.title)}
+                  </span>
                 </div>
               </div>
+              {selectedIndex === i && <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#464043]" />}
             </div>
           ))}
         </div>
 
-      </section>
+      </div>
 
-      {/* Mountain divider — golden bg → Ivory Dust Publications */}
-      <MountainDivider fill="#F0EDE5" />
-    </div>
+    </section>
   );
 }

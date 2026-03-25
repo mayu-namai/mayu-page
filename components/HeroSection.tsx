@@ -1,90 +1,62 @@
+"use client";
+
 import { profile } from "@/lib/data";
-import { CosmicSakuraIllustration } from "@/components/Decorations";
+import { useLang } from "@/contexts/LanguageContext";
 
 export default function HeroSection() {
+  const { lang } = useLang();
+  const en = lang === "en";
+
   return (
-    <div>
-      {/* ── About / Profile section ── */}
-      {/* pt-24 accounts for the fixed navbar height */}
-      <section id="about" className="pt-24 pb-14 md:pt-28 md:pb-20" style={{ background: "#F0EDE5" }}>
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
+    <section id="about" className="pt-36 pb-20 md:pt-56 md:pb-24 bg-[#FDFAFC]">
+      <div className="px-6">
+      <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 mx-auto w-fit">
 
-            {/* Portrait — replace with <img src="/portrait.jpg"> when available */}
-            <div className="shrink-0 self-center md:self-start">
-              <div className="relative w-56 h-72 md:w-64 md:h-80 rounded-2xl overflow-hidden shadow-xl shadow-[#223F59]/15 ring-1 ring-[#A0B1DD]/30">
-                <CosmicSakuraIllustration />
-              </div>
-            </div>
+        {/* Left: text */}
+        <div className="max-w-sm text-center text-[13px] min-[480px]:text-sm">
+          <h1
+            className="text-3xl md:text-5xl font-normal mb-6 text-[#464043]"
+            style={{ fontFamily: "var(--font-display), Georgia, serif" }}
+          >
+            {profile.nameEn}
+          </h1>
 
-            {/* Profile info */}
-            <div className="flex-1 min-w-0 pt-0 md:pt-4">
+          <p className="text-gray-500 mb-6 leading-relaxed whitespace-pre-line">
+            {en ? profile.bio : profile.bioJa}
+          </p>
 
-              {/* Japanese name */}
-              <h1
-                className="text-5xl md:text-6xl lg:text-7xl font-bold mb-1 leading-tight"
-                style={{ fontFamily: "var(--font-noto), sans-serif", color: "#D9B343" }}
+          {/* Interest tags */}
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
+            {profile.interests.map((tag) => (
+              <span
+                key={tag}
+                className="text-xs px-4 py-1.5 rounded-full border border-gray-200 bg-[#F7F3F4] text-gray-600"
               >
-                {profile.name}
-              </h1>
-
-              {/* English name */}
-              <p
-                className="text-xl md:text-2xl mb-8 tracking-[0.18em]"
-                style={{ fontFamily: "var(--font-display), Georgia, serif", color: "#D9B343" }}
-              >
-                {profile.nameEn}
-              </p>
-
-              {/* Affiliation / Mail */}
-              <dl className="text-sm space-y-2.5 mb-8">
-                <div className="flex gap-4 items-baseline flex-wrap">
-                  <dt className="shrink-0 font-semibold text-xs uppercase tracking-widest" style={{ color: "#A0B1DD" }}>
-                    Affiliation
-                  </dt>
-                  <dd className="leading-relaxed" style={{ color: "#2F4C73" }}>
-                    {profile.affiliation}　{profile.lab}
-                  </dd>
-                </div>
-                <div className="flex gap-4 items-baseline">
-                  <dt className="shrink-0 font-semibold text-xs uppercase tracking-widest" style={{ color: "#A0B1DD" }}>
-                    Mail
-                  </dt>
-                  <dd>
-                    <a
-                      href={`mailto:${profile.email}`}
-                      className="hover:underline transition-colors"
-                      style={{ color: "#2F4C73" }}
-                    >
-                      {profile.email}
-                    </a>
-                  </dd>
-                </div>
-              </dl>
-
-              {/* Research interest badges */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {profile.interests.map((kw) => (
-                  <span
-                    key={kw}
-                    className="inline-flex items-center px-3.5 py-1 text-sm font-medium rounded-full select-none"
-                    style={{
-                      background: "white",
-                      border: "1px solid rgba(160,177,221,0.5)",
-                      color: "#2F4C73",
-                    }}
-                  >
-                    {kw}
-                  </span>
-                ))}
-              </div>
-
-              <p className="text-xs text-right" style={{ color: "#A0B1DD" }}>{profile.updatedAt} 現在</p>
-            </div>
-
+                {tag}
+              </span>
+            ))}
           </div>
+
+          <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:opacity-60 transition-opacity">
+            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            {profile.email}
+          </a>
         </div>
-      </section>
-    </div>
+
+        {/* Right: illustration */}
+        <div className="w-64 h-64 md:w-80 md:h-80 shrink-0 rounded-full overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/icon_original.png"
+            alt="illustration"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+      </div>
+      </div>
+    </section>
   );
 }

@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Noto_Sans_JP, Cormorant_Garamond } from "next/font/google";
+import { Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { profile } from "@/lib/data";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
-const notoSansJP = Noto_Sans_JP({
+const notoSerifJP = Noto_Serif_JP({
   subsets: ["latin"],
-  variable: "--font-noto",
-  weight: ["400", "500", "700"],
-});
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700", "900"],
+  variable: "--font-noto-serif-jp",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -28,13 +24,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja" className="scroll-smooth">
+    <html lang="ja" className={`scroll-smooth ${notoSerifJP.variable}`}>
       <body
-        className={`${geist.variable} ${notoSansJP.variable} ${cormorant.variable} font-sans bg-[#F0EDE5] text-[#223F59] antialiased`}
+        className="antialiased"
+        style={{
+          background: "#FDFAFC",
+          color: "#6E6469",
+          fontFamily: '"Yu Mincho", "游明朝", "YuMincho", "游明朝体", serif',
+          fontWeight: 600,
+        }}
       >
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Navbar />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
