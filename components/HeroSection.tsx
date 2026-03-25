@@ -49,7 +49,7 @@ export default function HeroSection() {
         {/* Right: illustration */}
         <div className="w-64 h-64 md:w-80 md:h-80 shrink-0 rounded-full overflow-hidden relative">
           <Image
-            src="/icon_original.png"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/icon_original.png`}
             alt="illustration"
             fill
             className="object-cover"

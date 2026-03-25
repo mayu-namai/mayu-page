@@ -6,6 +6,8 @@ import Link from "next/link";
 import { researches } from "@/lib/data";
 import { useLang } from "@/contexts/LanguageContext";
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export default function ResearchSection() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
@@ -25,7 +27,7 @@ export default function ResearchSection() {
           onClick={() => setLightboxOpen(false)}
         >
           <Image
-            src={active.image ?? "/hero.jpg"}
+            src={`${bp}${active.image ?? "/hero.jpg"}`}
             alt={active.titleEn ?? active.title}
             width={1600}
             height={900}
@@ -72,7 +74,7 @@ export default function ResearchSection() {
           >
             <Image
               key={activeIndex}
-              src={active.image ?? "/hero.jpg"}
+              src={`${bp}${active.image ?? "/hero.jpg"}`}
               alt={active.titleEn ?? active.title}
               fill
               className="object-cover"
@@ -153,7 +155,7 @@ export default function ResearchSection() {
             >
               <div className={`aspect-[5/3] overflow-hidden bg-white transition-opacity duration-200 relative ${activeIndex === i ? "opacity-100" : "opacity-70"}`}>
                 <Image
-                  src={r.image ?? "/hero.jpg"}
+                  src={`${bp}${r.image ?? "/hero.jpg"}`}
                   alt={r.titleEn ?? r.title}
                   fill
                   className="object-contain transition-transform duration-500 hover:scale-105"
