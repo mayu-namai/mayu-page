@@ -331,7 +331,7 @@ export default function CareerSection() {
                   </button>
                 ))}
               </div>
-              <ol className="space-y-4">
+              <ol key={pubTab} className="space-y-4 animate-fade-slide">
                 {(pubTab === "peer" ? peerPubItems : nonPeerPubItems).map((pub, i) => (
                   <PubEntry key={i} pub={pub} idx={i} />
                 ))}

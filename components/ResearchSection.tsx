@@ -151,7 +151,7 @@ export default function ResearchSection() {
               className="relative cursor-pointer group"
               onMouseEnter={() => setHoverIndex(i)}
               onMouseLeave={() => setHoverIndex(null)}
-              onClick={() => setSelectedIndex(i)}
+              onClick={() => { setSelectedIndex(i); setLightboxOpen(true); }}
             >
               <div className={`aspect-[5/3] overflow-hidden bg-white transition-opacity duration-200 relative ${activeIndex === i ? "opacity-100" : "opacity-70"}`}>
                 <Image

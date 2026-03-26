@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+const bp = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 import { researches } from "@/lib/data";
 import Link from "next/link";
 import { useLang } from "@/contexts/LanguageContext";
@@ -27,11 +27,9 @@ export default function ProjectContent({ slug }: { slug: string }) {
 
         {project.image && (
           <div className="w-full bg-white mb-10 shadow-[4px_4px_20px_-4px_rgba(70,64,67,0.14)]">
-            <Image
-              src={project.image}
+            <img
+              src={`${bp}${project.image}`}
               alt={title}
-              width={1600}
-              height={700}
               className="w-full h-auto object-contain"
             />
           </div>
