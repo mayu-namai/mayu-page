@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://mayu-namai.github.io/mayu-page/",
   },
+  verification: {
+    google: "pnG_PQoEEOd9mXOBcS1DE5h9TS4dbPOW1_ZYO11Zc5E",
+  },
 };
 
 export default function RootLayout({
