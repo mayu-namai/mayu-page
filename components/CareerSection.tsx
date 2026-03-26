@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { profile, careers, publications, researches } from "@/lib/data";
 import { useLang } from "@/contexts/LanguageContext";
 
@@ -54,6 +54,37 @@ export default function CareerSection() {
   const [active, setActive] = useState<SectionId>("profile");
   const [pubTab, setPubTab] = useState<"peer" | "non-peer">("peer");
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const pressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const longPressed = useRef(false);
+  const swipeStartX = useRef<number | null>(null);
+
+  function handleSwipeStart(e: React.TouchEvent) {
+    swipeStartX.current = e.touches[0].clientX;
+  }
+  function handleSwipeEnd(e: React.TouchEvent) {
+    if (swipeStartX.current === null) return;
+    const delta = e.changedTouches[0].clientX - swipeStartX.current;
+    if (Math.abs(delta) > 50) {
+      if (delta < 0 && pubTab === "peer") setPubTab("non-peer");
+      if (delta > 0 && pubTab === "non-peer") setPubTab("peer");
+    }
+    swipeStartX.current = null;
+  }
+
+  function handleIconPressStart(id: SectionId) {
+    longPressed.current = false;
+    pressTimer.current = setTimeout(() => {
+      longPressed.current = true;
+      setDrawerOpen(true);
+    }, 500);
+  }
+  function handleIconPressEnd(id: SectionId) {
+    if (pressTimer.current) { clearTimeout(pressTimer.current); pressTimer.current = null; }
+    if (!longPressed.current) setActive(id);
+  }
+  function handleIconPressCancel() {
+    if (pressTimer.current) { clearTimeout(pressTimer.current); pressTimer.current = null; }
+  }
   const [pdfToast, setPdfToast] = useState(false);
 
   function handlePdfClick(e: React.MouseEvent) {
@@ -146,7 +177,10 @@ export default function CareerSection() {
             {sections.map((s) => (
               <button
                 key={s.id}
-                onClick={() => setDrawerOpen(true)}
+                onPointerDown={() => handleIconPressStart(s.id)}
+                onPointerUp={() => handleIconPressEnd(s.id)}
+                onPointerLeave={handleIconPressCancel}
+                onContextMenu={(e) => e.preventDefault()}
                 className={`w-9 h-9 flex items-center justify-center transition-colors ${
                   active === s.id ? "text-[#464043] bg-[#F7F3F4]" : "text-gray-400"
                 }`}
@@ -277,7 +311,7 @@ export default function CareerSection() {
 
           {/* Publications */}
           {active === "publications" && (
-            <div>
+            <div onTouchStart={handleSwipeStart} onTouchEnd={handleSwipeEnd}>
               <SectionHeading en={en} jaText="論文" enText="Publications" />
               {/* Sub-tabs */}
               <div className="flex gap-0 mb-6 border-b border-gray-200">
