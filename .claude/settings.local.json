@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \":*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(sed -i -e 's/bg-white/bg-\\\\[#FEF9FE\\\\]/g' -e 's/text-black/text-\\\\[#464043\\\\]/g' -e 's/border-black/border-\\\\[#464043\\\\]/g' -e 's/bg-black/bg-\\\\[#464043\\\\]/g' -e 's/fill=\"\"black\"\"/fill=\"\"#464043\"\"/g' -e 's/stroke=\"\"black\"\"/stroke=\"\"#464043\"\"/g' -e 's/stroke=\"\"white\"\"/stroke=\"\"#FEF9FE\"\"/g' \"$f\")",
+      "Bash(done)",
+      "Bash(grep -r prose-ja /c/Users/ikuim/Documents/2025_D1_研究/projects/mayu_page --include=*.tsx --include=*.ts --include=*.jsx --include=*.js --include=*.css)",
+      "Bash(cat:*)",
+      "Bash(python3 -c \"from PIL import Image; img = Image.open\\(''p1_vignette.png''\\); print\\(img.size\\)\")",
+      "Bash(node -e \"const fs=require\\(''fs''\\); const buf=fs.readFileSync\\(''C:/Users/ikuim/Documents/2025_D1_研究/projects/mayu_page/public/p1_vignette.png''\\); const w=buf.readUInt32BE\\(16\\); const h=buf.readUInt32BE\\(20\\); console.log\\(w+''x''+h\\);\")",
+      "Bash(node -e \"require\\(''sharp''\\); console.log\\(''ok''\\)\")",
+      "WebSearch",
+      "WebFetch(domain:kaken.nii.ac.jp)",
+      "WebFetch(domain:www.jst.go.jp)",
+      "WebFetch(domain:k-ris.keio.ac.jp)",
+      "WebFetch(domain:fj.ics.keio.ac.jp)",
+      "WebFetch(domain:keio.elsevierpure.com)",
+      "WebFetch(domain:jglobal.jst.go.jp)",
+      "WebFetch(domain:www.eurekalert.org)",
+      "WebFetch(domain:www.st.keio.ac.jp)",
+      "WebFetch(domain:www.kll.keio.ac.jp)",
+      "WebFetch(domain:projectdb.jst.go.jp)",
+      "WebFetch(domain:grants.jst.go.jp)",
+      "Bash(npx tsc:*)",
+      "Bash(npx next:*)",
+      "WebFetch(domain:mayu-namai.github.io)"
+    ]
+  }
+}

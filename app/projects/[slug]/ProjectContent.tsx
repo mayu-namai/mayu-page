@@ -101,12 +101,44 @@ export default function ProjectContent({ slug }: { slug: string }) {
               </h2>
               <div className="flex-1 h-px bg-gray-300" />
             </div>
-            <p className="text-xs min-[480px]:text-sm text-gray-500 leading-[1.9] whitespace-pre-line">
-              {en
-                ? `In recent years, various summarization techniques have been proposed to address the increasing size of video data. However, most aim to compress information within the same modality, leading to inherent limitations in compression rates. Thus, to offset these effects, it is necessary to explore conversions to different modalities.\n\nIn response, this study focuses on vignette illustrations, which are still-image illustrations that refine and visually express the narrative content of entertainment media, such as animated works or games. If video content can be transformed into vignette illustrations, it becomes possible to retain core visual information while achieving a significantly higher compression rate than conventional techniques.\n\nTo this end, we propose the Video Image Generative Network, Transformed & Expanded (VigNette), a system that generates vignette illustrations from videos, supporting both semiautomated generation that reflects user preferences and automated generation without user input.`
-                : `近年、動画データの増加に対応するため、さまざまな要約手法が提案されてきた。しかし、これらの多くは同じモダリティ内で情報を圧縮することを目的としており、圧縮率には本質的な限界がある。そのため、これらの限界を補うには、異なるモダリティへの変換を検討する必要がある。\n\n本研究では、ヴィネットイラストに着目する。ヴィネットイラストとは、アニメ作品やゲームなどのエンターテインメントメディアの物語内容を精緻に抽出し、視覚的に表現する静止画イラストである。もし動画コンテンツをヴィネットイラストに変換できれば、主要な視覚情報を保持しつつ、従来手法よりも大幅に高い圧縮率を実現できる可能性がある。\n\nそこで本研究では、動画からヴィネットイラストを生成するシステムとして、Video Image Generative Network, Transformed & Expanded（VigNette）を提案する。本システムは、ユーザーの好みを反映した半自動生成と、ユーザー入力なしでの自動生成の両方をサポートする。`
-              }
-            </p>
+            <div className="text-xs min-[480px]:text-sm text-gray-500 leading-[1.9] space-y-5">
+              <p>{en
+                ? "In recent years, various summarization techniques have been proposed to address the increasing size of video data. However, most aim to compress information within the same modality, leading to inherent limitations in compression rates. Thus, to offset these effects, it is necessary to explore conversions to different modalities."
+                : "近年、動画データの増加に対応するため、さまざまな要約手法が提案されてきた。しかし、これらの多くは同じモダリティ内で情報を圧縮することを目的としており、圧縮率には本質的な限界がある。そのため、これらの限界を補うには、異なるモダリティへの変換を検討する必要がある。"}
+              </p>
+              <p>{en
+                ? "In response, this study focuses on vignette illustrations, which are still-image illustrations that refine and visually express the narrative content of entertainment media, such as animated works or games. If video content can be transformed into vignette illustrations, it becomes possible to retain core visual information while achieving a significantly higher compression rate than conventional techniques."
+                : "本研究では、ヴィネットイラストに着目する。ヴィネットイラストとは、アニメ作品やゲームなどのエンターテインメントメディアの物語内容を精緻に抽出し、視覚的に表現する静止画イラストである。もし動画コンテンツをヴィネットイラストに変換できれば、主要な視覚情報を保持しつつ、従来手法よりも大幅に高い圧縮率を実現できる可能性がある。"}
+              </p>
+              <figure className="my-6">
+                <img
+                  src={`${bp}/p1_d1_vignette_examples.png`}
+                  alt={en ? "Examples of actual vignette illustrations" : "実際のヴィネットイラストの例"}
+                  className="w-full h-auto"
+                />
+                <figcaption className="text-center text-xs text-gray-400 mt-2">
+                  {en ? "Examples of actual vignette illustrations" : "実際のヴィネットイラストの例"}
+                </figcaption>
+              </figure>
+              <p>{en
+                ? "To this end, we propose the Video Image Generative Network, Transformed & Expanded (VigNette), a system that generates vignette illustrations from videos, supporting both semiautomated generation that reflects user preferences and automated generation without user input."
+                : "そこで本研究では、動画からヴィネットイラストを生成するシステムとして、Video Image Generative Network, Transformed & Expanded（VigNette）を提案する。本システムは、ユーザの好みを反映した半自動生成と、ユーザ入力なしでの自動生成の両方をサポートする。"}
+              </p>
+              <figure className="my-6">
+                <img
+                  src={`${bp}/p1_d2_vignette_flamework.png`}
+                  alt={en ? "VigNette processing framework" : "VigNette の処理フレームワーク"}
+                  className="w-full h-auto"
+                />
+                <figcaption className="text-center text-xs text-gray-400 mt-2">
+                  {en ? "VigNette processing framework" : "VigNette の処理フレームワーク"}
+                </figcaption>
+              </figure>
+              <p>{en
+                ? "In VigNette, first, frames showing the full body of a character and frames showing the stage (i.e., everything except the characters) are extracted from the input video. These are defined as candidate character frames and candidate stage frames, respectively. The pipeline then splits into two branches. In the semiautomated process, the user manually selects one candidate character frame and one candidate stage frame. These are called the representative character frame and representative stage frame, and a stage caption is generated for the selected stage. In the automated process, VigNette automatically selects both the representative frames and the stage caption based on a predefined algorithm. Finally, VigNette generates two materials: the character material, defined as the extracted character region, and the stage material, defined as the extracted stage region. These are composited to produce the final vignette illustration."
+                : "VigNetteでは，まず、入力動画からキャラクタ全身が写っているフレームと、ステージ（つまりキャラクタ以外のすべて）が写っているフレームを抽出します。それぞれを候補キャラクタフレームと候補ステージフレームと定義します。その後、パイプラインは二つの分岐に分かれます。半自動プロセスでは、ユーザが手動で候補キャラクタフレームの中から1枚、候補ステージフレームの中から1枚を選択します。これらをそれぞれ代表キャラクタフレーム、代表ステージフレームと呼び、選択されたステージに対してステージキャプションが生成されます。自動プロセスでは、VigNetteが事前に定められたアルゴリズムに基づき、代表フレームとステージキャプションの両方を自動的に選択します。最後に、VigNetteは二つの素材を生成します。キャラクタ素材は抽出されたキャラクタ領域、ステージ素材は抽出されたステージ領域として定義されます。これらを合成することで最終的なヴィネットイラストが生成されます。"}
+              </p>
+            </div>
           </div>
 
           <div className="mt-16">
