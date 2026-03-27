@@ -89,38 +89,25 @@ export default function ResearchSection() {
                 key={i}
                 {...(wrapperProps as any)}
                 style={{ gridColumn: "1 / 2", gridRow: "1 / 2" }}
-                className={`flex flex-col px-7 pt-4 pb-5 text-xs min-[480px]:text-sm ${
+                className={`flex flex-col px-5 pt-3 pb-4 text-xs min-[480px]:text-sm ${
                   activeIndex === i
                     ? `${r.hasPage ? "hover:bg-gray-50 cursor-pointer" : ""} transition-colors`
                     : "invisible pointer-events-none select-none"
                 }`}
               >
-                <div className="mb-3">
+                <div className="mb-2">
                   <h3
                     className="text-lg min-[480px]:text-3xl font-normal text-[#464043] mb-1"
                     style={{ fontFamily: "var(--font-display), Georgia, serif" }}
                   >
                     {en ? (r.titleEn ?? r.title) : r.title}
                   </h3>
-                  <p className="text-gray-500 leading-relaxed mt-3 mb-4">
+                  <p className="text-gray-500 leading-relaxed mt-2 mb-2">
                     {en ? (r.descriptionEn ?? r.description) : r.description}
                   </p>
-
-                  {r.keywords.length > 0 && (
-                    <div className="text-gray-500">
-                      <p className="font-medium text-[#464043] mb-1">Keywords <span className="text-gray-300 font-normal">|</span></p>
-                      <p className="flex flex-wrap gap-x-1">
-                        {r.keywords.map((kw, j) => (
-                          <span key={kw}>
-                            {kw}{j < r.keywords.length - 1 && <span className="mx-1 text-gray-300">·</span>}
-                          </span>
-                        ))}
-                      </p>
-                    </div>
-                  )}
                 </div>
 
-                <div className="flex items-center text-gray-500 mt-auto pt-3" onClick={(e) => e.preventDefault()}>
+                <div className="flex items-center text-gray-500 mt-auto pt-1" onClick={(e) => e.preventDefault()}>
                   {r.paper
                     ? <a href={r.paper} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors" onClick={(e) => e.stopPropagation()}>Paper</a>
                     : <span className="text-gray-300">Paper</span>
