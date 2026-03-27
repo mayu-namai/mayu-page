@@ -70,6 +70,39 @@ export default function ProjectContent({ slug }: { slug: string }) {
 
         {slug === "vignette" && (
           <>
+          {/* Demo Video */}
+          <div className="mt-16">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="flex-1 h-px bg-gray-300" />
+              <h2 className="text-xl min-[480px]:text-3xl font-normal text-[#464043] whitespace-nowrap"
+                style={{ fontFamily: '"Yu Mincho", "游明朝", "YuMincho", serif' }}>
+                Demo Video
+              </h2>
+              <div className="flex-1 h-px bg-gray-300" />
+            </div>
+            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/qBnqfbKda-c"
+                title="VigNette Demo Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+
+          {/* Summary */}
+          <div className="mt-16">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="flex-1 h-px bg-gray-300" />
+              <h2 className="text-xl min-[480px]:text-3xl font-normal text-[#464043] whitespace-nowrap"
+                style={{ fontFamily: '"Yu Mincho", "游明朝", "YuMincho", serif' }}>
+                Summary
+              </h2>
+              <div className="flex-1 h-px bg-gray-300" />
+            </div>
+          </div>
+
           <div className="mt-16">
             <div className="flex items-center gap-4 mb-10">
               <div className="flex-1 h-px bg-gray-300" />
