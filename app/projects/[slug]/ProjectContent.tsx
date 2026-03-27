@@ -101,6 +101,12 @@ export default function ProjectContent({ slug }: { slug: string }) {
               </h2>
               <div className="flex-1 h-px bg-gray-300" />
             </div>
+            <p className="text-xs min-[480px]:text-sm text-gray-500 leading-[1.9] whitespace-pre-line">
+              {en
+                ? `In recent years, various summarization techniques have been proposed to address the increasing size of video data. However, most aim to compress information within the same modality, leading to inherent limitations in compression rates. Thus, to offset these effects, it is necessary to explore conversions to different modalities.\n\nIn response, this study focuses on vignette illustrations, which are still-image illustrations that refine and visually express the narrative content of entertainment media, such as animated works or games. If video content can be transformed into vignette illustrations, it becomes possible to retain core visual information while achieving a significantly higher compression rate than conventional techniques.\n\nTo this end, we propose the Video Image Generative Network, Transformed & Expanded (VigNette), a system that generates vignette illustrations from videos, supporting both semiautomated generation that reflects user preferences and automated generation without user input.`
+                : `近年、動画データの増加に対応するため、さまざまな要約手法が提案されてきた。しかし、これらの多くは同じモダリティ内で情報を圧縮することを目的としており、圧縮率には本質的な限界がある。そのため、これらの限界を補うには、異なるモダリティへの変換を検討する必要がある。\n\n本研究では、ヴィネットイラストに着目する。ヴィネットイラストとは、アニメ作品やゲームなどのエンターテインメントメディアの物語内容を精緻に抽出し、視覚的に表現する静止画イラストである。もし動画コンテンツをヴィネットイラストに変換できれば、主要な視覚情報を保持しつつ、従来手法よりも大幅に高い圧縮率を実現できる可能性がある。\n\nそこで本研究では、動画からヴィネットイラストを生成するシステムとして、Video Image Generative Network, Transformed & Expanded（VigNette）を提案する。本システムは、ユーザーの好みを反映した半自動生成と、ユーザー入力なしでの自動生成の両方をサポートする。`
+              }
+            </p>
           </div>
 
           <div className="mt-16">
