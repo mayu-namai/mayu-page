@@ -145,8 +145,9 @@ export default function ResearchSection() {
             <div
               key={i}
               className="relative cursor-pointer group"
-              onMouseEnter={() => setHoverIndex(i)}
-              onMouseLeave={() => setHoverIndex(null)}
+              onPointerEnter={(e) => { if (e.pointerType === "mouse") setHoverIndex(i); }}
+              onPointerLeave={(e) => { if (e.pointerType === "mouse") setHoverIndex(null); }}
+              onTouchEnd={(e) => { e.preventDefault(); setSelectedIndex(i); }}
               onClick={() => setSelectedIndex(i)}
             >
               <div className={`aspect-[5/3] overflow-hidden bg-white transition-opacity duration-200 relative ${activeIndex === i ? "opacity-100" : "opacity-70"}`}>
