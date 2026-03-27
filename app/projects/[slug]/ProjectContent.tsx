@@ -3,11 +3,13 @@
 const bp = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 import { researches } from "@/lib/data";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useLang } from "@/contexts/LanguageContext";
 import PublicationsList from "@/components/PublicationsList";
 
 export default function ProjectContent({ slug }: { slug: string }) {
   const project = researches.find((r) => r.slug === slug)!;
+  const router = useRouter();
   const { lang } = useLang();
   const en = lang === "en";
 
@@ -18,12 +20,12 @@ export default function ProjectContent({ slug }: { slug: string }) {
     <main className="min-h-screen bg-[#FDFAFC] pt-28 pb-24">
       <div className="max-w-3xl mx-auto px-6">
 
-        <Link
-          href="/#research"
+        <button
+          onClick={() => router.back()}
           className="inline-flex items-center gap-1 text-xs min-[480px]:text-sm text-gray-400 hover:text-[#464043] transition-colors mb-10"
         >
           ← Projects
-        </Link>
+        </button>
 
         {project.image && (
           <div className="w-full bg-white mb-10 shadow-[4px_4px_20px_-4px_rgba(70,64,67,0.14)]">
