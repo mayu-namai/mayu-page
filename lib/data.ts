@@ -5,17 +5,17 @@
 export const profile = {
   name: "生井 麻結",
   nameEn: "Mayu Namai",
-  affiliation: "慶應義塾大学大学院 理工学研究科",
-  affiliationEn: "Keio University, Graduate School of Science and Technology",
-  lab: "鳴海研究室",
-  labEn: "Narumi Lab",
+  affiliation: "民間企業",
+  affiliationEn: "Private Company",
+  lab: "",
+  labEn: "",
   email: "namamayuga@gmail.com",
   twitter: "@ai_yasan",
   googleScholar: "",
   github: "",
   interests: ["Generative AI", "Human-Computer Interaction", "Multimedia"],
-  bio: "I am an AI engineer in industry\nand a Ph.D. student at Keio University.\nI want to create a world where anyone can easily bring their imagination to life through generative AI.",
-  bioJa: "企業でAIエンジニアとして働きながら，\n慶應義塾大学の博士課程に在籍しています．\n生成AIを活用して誰もが思い描いたことを\n簡単に実現できる世界にしたいです．",
+  bio: "I am an AI engineer in industry.\nI want to create a world where anyone can easily bring their imagination to life through generative AI.",
+  bioJa: "企業でAIエンジニアとして働いています．\n生成AIを活用して誰もが思い描いたことを\n簡単に実現できる世界にしたいです．",
   // 写真を追加する場合は public/ 以下のパスを入れてください (例: "/photos/1.jpg")
   photos: ["/my_images.png", "/my_images.png", "/my_images.png", "/my_images.png"] as string[],
 };
@@ -202,10 +202,10 @@ export type CareerItem = {
 export const careers: CareerItem[] = [
   // ── 学歴（新しい順）────────────────────────
   {
-    period: "2025年10月 – 現在",
-    periodEn: "Oct. 2025 – Present",
-    title: "慶應義塾大学大学院 理工学研究科 博士課程",
-    titleEn: "Keio University, Graduate School of Science and Technology, Ph.D. Program",
+    period: "2025年10月 – 2026年3月",
+    periodEn: "Oct. 2025 – Mar. 2026",
+    title: "慶應義塾大学大学院 理工学研究科 博士課程 中途退学",
+    titleEn: "Keio University, Graduate School of Science and Technology, Ph.D. Program (Withdrew)",
     organization: "",
     description: "鳴海研究室",
     descriptionEn: "Narumi Lab",
