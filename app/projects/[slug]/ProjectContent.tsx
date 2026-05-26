@@ -193,16 +193,21 @@ export default function ProjectContent({ slug }: { slug: string }) {
               <figure className="my-6">
                 <img
                   src={`${bp}/p1_d4_frames.png`}
-                  alt={en ? "Input frames for Plants & Planets [1]" : "Plants & Planets [1] の入力フレーム"}
+                  alt={en ? "Frame images from Plants & Planets [1]" : "Plants & Planets [1] のフレーム画像"}
                   className="w-full h-auto"
                 />
+                <figcaption className="text-center text-xs text-gray-400 mt-2">
+                  {en ? "Frame images from Plants & Planets [1]" : "Plants & Planets [1] のフレーム画像"}
+                </figcaption>
+              </figure>
+              <figure className="my-6">
                 <img
                   src={`${bp}/p1_d4_outputs.png`}
-                  alt={en ? "Generation results for Plants & Planets [1]" : "Plants & Planets [1] の生成結果"}
-                  className="w-full h-auto mt-3"
+                  alt={en ? "Generation results using Plants & Planets [1] as input" : "Plants & Planets [1] を入力とした場合の生成結果"}
+                  className="w-full h-auto"
                 />
                 <figcaption className="text-center text-xs text-gray-400 mt-2">
-                  {en ? "Frames and generation results for Plants & Planets [1]" : "Plants & Planets [1] におけるフレームと生成結果"}
+                  {en ? "Generation results using Plants & Planets [1] as input" : "Plants & Planets [1] を入力とした場合の生成結果"}
                 </figcaption>
               </figure>
               <p>
