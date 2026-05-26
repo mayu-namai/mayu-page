@@ -172,7 +172,7 @@ export default function ProjectContent({ slug }: { slug: string }) {
                 ? "In semiautomated mode, users can generate their ideal vignette illustration by selecting just two frames. Through a dedicated UI, the user selects one character frame — showing the main character — and one stage frame — showing the background and setting — and the illustration is generated intuitively from those choices."
                 : "半自動生成モードでは、たった2枚のフレームを選ぶだけで、思い描いたヴィネットイラストを生成できる。専用のUIから、主要登場人物が映るキャラクタフレームと、背景・舞台が映るステージフレームをそれぞれ1枚ずつ選択するだけで、直感的に自分好みのイラストを作成できる。"}
               </p>
-              <div className="my-6 grid grid-cols-3 gap-3">
+              <div className="my-6 space-y-6">
                 {[
                   { src: "p1_d3_ch_ui.png",        captionJa: "(a) キャラクタフレーム選択画面（キャラクター領域を赤枠で表示）", captionEn: "(a) Character frame selection (character region highlighted in red)" },
                   { src: "p1_d3_st_ui.png",         captionJa: "(b) ステージフレーム選択画面",  captionEn: "(b) Stage frame selection" },
@@ -200,7 +200,7 @@ export default function ProjectContent({ slug }: { slug: string }) {
                   {en ? "Frames and generation results for Plants & Planets [1]" : "Plants & Planets [1] におけるフレームと生成結果"}
                 </figcaption>
               </figure>
-              <p className="text-xs text-gray-400 leading-[1.7]">
+              <p>
                 [1] Super Furball, Plants &amp; Planets, 2025, [Online]. Available: <a href="https://www.youtube.com/watch?v=r9C-p8F5WNs" target="_blank" rel="noopener noreferrer" className="hover:underline">https://www.youtube.com/watch?v=r9C-p8F5WNs</a>.
               </p>
             </div>
