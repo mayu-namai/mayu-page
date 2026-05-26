@@ -82,16 +82,16 @@ export default function ProjectContent({ slug }: { slug: string }) {
             </div>
             <div className="text-xs min-[480px]:text-sm text-gray-500 leading-[1.9] space-y-5">
               <p>{en
-                ? "Your smartphone holds years of precious moments — loved ones, places you can't return to, celebrations that have passed. Yet most of these photos sit unvisited in a digital album, and the memories they hold gradually fade from everyday life."
-                : "スマートフォンの写真には，大切な人との時間や，もう戻れない場所，かけがえない瞬間が詰まっている．でも，そうした写真のほとんどはアルバムの奥に眠ったまま，日常の中でほとんど目にされることがない．"}
+                ? "We take countless photos to hold onto precious moments — yet those memories end up scattered across hundreds of files, rarely revisited and never quite complete. Any single photo captures only a fragment: a good angle here, a better expression there, a background that only appears in another shot."
+                : "大切な瞬間を残そうと，私たちはたくさんの写真を撮る．でも，それらの記憶は何百枚ものファイルに散らばったまま，ほとんど見返されることがない．どの1枚も，記憶のほんの断片でしかない——ある写真には良い表情が，別の写真には好きな背景が，また別の写真には忘れたくない瞬間が写っている．"}
               </p>
               <p>{en
-                ? "Tangible Memories converts those photos into 3D figures you can hold. Upload a single photo, and the system generates a three-dimensional model of the subject — a person, a pet, a cherished object — ready to be 3D printed and placed on your shelf."
-                : "Tangible Memoriesは，そんな思い出の写真を，手で触れられる3Dフィギュアに変えるシステムです．写真を1枚アップロードするだけで，写っている人物やペット，大切な物が立体として再現され，3Dプリントで出力できます．"}
+                ? "Tangible Memories integrates multiple photos to generate a single 3D figure that captures the best of each — the right expression, the right pose, the right moment — condensed into one object you can hold in your hands."
+                : "Tangible Memoriesは，複数の写真を統合し，それぞれのいいとこどりをした3Dフィギュアを生成します．最良の表情，好きなポーズ，残しておきたい瞬間——すべての写真から記憶を凝縮して，手で触れられる一つのものに変えます．"}
               </p>
               <p>{en
-                ? "Rather than keeping memories stored away on a screen, Tangible Memories brings them back into the physical spaces of daily life — as something you can see, touch, and share."
-                : "思い出をただ保存するのではなく，棚に飾れる形にする．Tangible Memoriesは，デジタルな記憶を日常の空間に連れ戻すことを目指しています．"}
+                ? "Rather than picking the \"best\" photo and discarding the rest, Tangible Memories brings all of them together — turning scattered digital memories into something you can see, touch, and keep."
+                : "「一番いい写真」を選んで他を諦めるのではなく，すべての写真を一つに．Tangible Memoriesは，散らばったデジタルの記憶を，棚に飾れる形に凝縮します．"}
               </p>
             </div>
           </div>

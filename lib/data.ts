@@ -171,9 +171,9 @@ export const researches: Research[] = [
     title: "ユーザの思い出画像からの3Dフィギュア生成",
     titleEn: "Generating 3D Figures from User Memory Images",
     description:
-      "スマートフォンで撮影した思い出の写真から，ユーザにとって意味のある3Dフィギュアを自動生成するシステムです．生成AIを活用し，写真に写る人物・風景・物体を3Dモデルとして再構成することで，デジタルな記憶を手で触れられる形に変換します．",
+      "複数の思い出写真を統合し，すべての写真のいいとこどりをした3Dフィギュアを生成するシステムです．たくさんの写真に散らばった記憶の断片を一つに凝縮し，手で触れられる形にします．",
     descriptionEn:
-      "A system that automatically generates meaningful 3D figures from user memory photos taken on smartphones. By leveraging generative AI, it reconstructs people, landscapes, and objects in photos as 3D models, transforming digital memories into tangible, physical forms.",
+      "A system that integrates multiple memory photos to generate a 3D figure capturing the best of each — condensing fragments of memory scattered across many photos into a single, tangible object.",
     keywords: ["3D Generation", "Generative AI", "Personal Fabrication", "Human-Computer Interaction", "Tangible Computing"],
     hasPage: true,
   },
