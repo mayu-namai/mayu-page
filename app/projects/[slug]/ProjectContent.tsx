@@ -68,6 +68,62 @@ export default function ProjectContent({ slug }: { slug: string }) {
           }
         </div>
 
+        {slug === "tangible-memories" && (
+          <>
+          {/* Summary */}
+          <div className="mt-16">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="flex-1 h-px bg-gray-300" />
+              <h2 className="text-xl min-[480px]:text-3xl font-normal text-[#464043] whitespace-nowrap"
+                style={{ fontFamily: '"Yu Mincho", "游明朝", "YuMincho", serif' }}>
+                Summary
+              </h2>
+              <div className="flex-1 h-px bg-gray-300" />
+            </div>
+            <div className="text-xs min-[480px]:text-sm text-gray-500 leading-[1.9] space-y-5">
+              <p>{en
+                ? "Photographs taken on smartphones capture precious moments of our daily lives — family gatherings, travel destinations, celebrations with friends. Yet once stored in a digital album, these memories often remain locked behind a screen, inaccessible to the tactile sense that makes experiences truly vivid."
+                : "スマートフォンで撮影した写真は，家族の集まりや旅先の風景，友人との思い出など，日常の大切な瞬間を記録している．しかし一度デジタルアルバムに収められると，これらの記憶は画面の奥に閉じ込められ，体験をより鮮明にする触覚的な感覚とは切り離されてしまう．"}
+              </p>
+              <p>{en
+                ? "This project explores a new paradigm of memory preservation: converting user photos into personalized 3D figures that can be physically fabricated and held in one's hands. By combining multi-view reconstruction, generative image-to-3D models, and automatic texturing pipelines, the system reconstructs subjects from single or sparse images and produces print-ready 3D models."
+                : "本プロジェクトでは，ユーザの写真を個人化された3Dフィギュアへと変換し，手で触れる形で物理出力できる新しい記憶保存のパラダイムを探求する．多視点復元，生成AIによる画像→3Dモデル変換，自動テクスチャリングパイプラインを組み合わせることで，単一または少数の画像から被写体を再構成し，3Dプリント可能なモデルを生成する．"}
+              </p>
+              <p>{en
+                ? "A key challenge lies in handling the ambiguity inherent in single-image 3D reconstruction — occluded regions, uncertain geometry, and the diversity of subjects ranging from human figures to pets and objects. We address this by integrating diffusion-based prior knowledge with user-guided refinement, enabling the system to produce plausible and aesthetically coherent outputs even from low-quality or partially obscured photos."
+                : "単一画像からの3D再構成に固有の曖昧さ―オクルージョン領域，不確かなジオメトリ，人物・ペット・物体など被写体の多様性―への対処が主要な課題である．本研究では，拡散モデルに基づく事前知識とユーザ誘導型の修正を統合することで，低品質または部分的に隠れた写真からも，もっともらしく美的に整合性のある出力を生成できるシステムを実現する．"}
+              </p>
+              <p>{en
+                ? "The generated models are designed with fabrication constraints in mind: wall thickness, support geometry, and surface smoothness are automatically optimized for desktop FDM and resin 3D printers, allowing users to hold a physical replica of their memories within hours."
+                : "生成されるモデルは造形制約を考慮して設計されており，壁厚・サポートジオメトリ・表面滑らかさをデスクトップFDMおよびレジン3Dプリンタ向けに自動最適化する．これにより，ユーザは数時間以内に思い出のフィジカルレプリカを手にすることができる．"}
+              </p>
+            </div>
+          </div>
+
+          {/* Approach */}
+          <div className="mt-16">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="flex-1 h-px bg-gray-300" />
+              <h2 className="text-xl min-[480px]:text-3xl font-normal text-[#464043] whitespace-nowrap"
+                style={{ fontFamily: '"Yu Mincho", "游明朝", "YuMincho", serif' }}>
+                Approach
+              </h2>
+              <div className="flex-1 h-px bg-gray-300" />
+            </div>
+            <div className="text-xs min-[480px]:text-sm text-gray-500 leading-[1.9] space-y-5">
+              <p>{en
+                ? "The pipeline consists of three main stages. First, the subject is segmented from the background using a saliency-guided segmentation model. Second, a diffusion-based image-to-3D module generates a coarse 3D mesh from the segmented subject, using learned priors to fill occluded surfaces. Third, an automatic texturing step projects the original photo colors onto the mesh surface and inpaints missing regions with a texture diffusion model."
+                : "パイプラインは3つの主要なステージから構成される．まず，顕著性に基づくセグメンテーションモデルを用いて被写体を背景から切り出す．次に，拡散モデルに基づく画像→3Dモジュールが，切り出した被写体から粗い3Dメッシュを生成し，学習済み事前知識でオクルージョン面を補完する．最後に，自動テクスチャリングステップで元の写真の色情報をメッシュ表面に投影し，欠損領域をテクスチャ拡散モデルでインペインティングする．"}
+              </p>
+              <p>{en
+                ? "Users can interact with intermediate results through a lightweight web interface, adjusting segmentation boundaries, selecting preferred geometry variants, and specifying the desired figure scale. The final export includes both a colored OBJ file and a sliced file ready for common 3D printing software."
+                : "ユーザは軽量なWebインターフェースを通じて中間結果に関与でき，セグメンテーション境界の調整，好みのジオメトリバリアントの選択，フィギュアのスケール指定が可能である．最終的な出力には，カラーOBJファイルと一般的な3Dプリントソフトウェア向けのスライス済みファイルの両方が含まれる．"}
+              </p>
+            </div>
+          </div>
+          </>
+        )}
+
         {slug === "vignette" && (
           <>
           {/* Demo Video */}
