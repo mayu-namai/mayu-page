@@ -166,13 +166,16 @@ export const researches: Research[] = [
   },
   // ── 以下、追加予定のプロジェクト ──────────────────────────
   {
-    slug: "project-2",
-    title: "準備中",
-    titleEn: "Coming Soon",
-    description: "準備中です．",
-    descriptionEn: "Coming soon.",
-    keywords: [],
-    // image: "/research/project2.jpg",
+    slug: "tangible-memories",
+    label: "#TangibleMemories",
+    title: "ユーザの思い出画像からの3Dフィギュア生成",
+    titleEn: "Generating 3D Figures from User Memory Images",
+    description:
+      "複数の思い出写真を統合し，すべての写真のいいとこどりをした3Dフィギュアを生成するシステムです．たくさんの写真に散らばった記憶の断片を一つに凝縮し，手で触れられる形にします．",
+    descriptionEn:
+      "A system that integrates multiple memory photos to generate a 3D figure capturing the best of each — condensing fragments of memory scattered across many photos into a single, tangible object.",
+    keywords: ["3D Generation", "Generative AI", "Personal Fabrication", "Human-Computer Interaction", "Tangible Computing"],
+    hasPage: true,
   },
   {
     slug: "project-3",

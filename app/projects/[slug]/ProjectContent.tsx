@@ -68,6 +68,36 @@ export default function ProjectContent({ slug }: { slug: string }) {
           }
         </div>
 
+        {slug === "tangible-memories" && (
+          <>
+          {/* Summary */}
+          <div className="mt-16">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="flex-1 h-px bg-gray-300" />
+              <h2 className="text-xl min-[480px]:text-3xl font-normal text-[#464043] whitespace-nowrap"
+                style={{ fontFamily: '"Yu Mincho", "游明朝", "YuMincho", serif' }}>
+                Summary
+              </h2>
+              <div className="flex-1 h-px bg-gray-300" />
+            </div>
+            <div className="text-xs min-[480px]:text-sm text-gray-500 leading-[1.9] space-y-5">
+              <p>{en
+                ? "We take countless photos to hold onto precious moments — yet those memories end up scattered across hundreds of files, rarely revisited and never quite complete. Any single photo captures only a fragment: a good angle here, a better expression there, a background that only appears in another shot."
+                : "大切な瞬間を残そうと，私たちはたくさんの写真を撮る．でも，それらの記憶は何百枚ものファイルに散らばったまま，ほとんど見返されることがない．どの1枚も，記憶のほんの断片でしかない——ある写真には良い表情が，別の写真には好きな背景が，また別の写真には忘れたくない瞬間が写っている．"}
+              </p>
+              <p>{en
+                ? "Tangible Memories integrates multiple photos to generate a single 3D figure that captures the best of each — the right expression, the right pose, the right moment — condensed into one object you can hold in your hands."
+                : "Tangible Memoriesは，複数の写真を統合し，それぞれのいいとこどりをした3Dフィギュアを生成します．最良の表情，好きなポーズ，残しておきたい瞬間——すべての写真から記憶を凝縮して，手で触れられる一つのものに変えます．"}
+              </p>
+              <p>{en
+                ? "Rather than picking the \"best\" photo and discarding the rest, Tangible Memories brings all of them together — turning scattered digital memories into something you can see, touch, and keep."
+                : "「一番いい写真」を選んで他を諦めるのではなく，すべての写真を一つに．Tangible Memoriesは，散らばったデジタルの記憶を，棚に飾れる形に凝縮します．"}
+              </p>
+            </div>
+          </div>
+          </>
+        )}
+
         {slug === "vignette" && (
           <>
           {/* Demo Video */}
@@ -103,12 +133,16 @@ export default function ProjectContent({ slug }: { slug: string }) {
             </div>
             <div className="text-xs min-[480px]:text-sm text-gray-500 leading-[1.9] space-y-5">
               <p>{en
-                ? "In recent years, various summarization techniques have been proposed to address the increasing size of video data. However, most aim to compress information within the same modality, leading to inherent limitations in compression rates. Thus, to offset these effects, it is necessary to explore conversions to different modalities."
-                : "近年、動画データの増加に対応するため、さまざまな要約手法が提案されてきた。しかし、これらの多くは同じモダリティ内で情報を圧縮することを目的としており、圧縮率には本質的な限界がある。そのため、これらの限界を補うには、異なるモダリティへの変換を検討する必要がある。"}
+                ? "In recent years, a wide range of summarization techniques for video data have been proposed. However, most of them are limited to a \"compress long video into short video\" approach."
+                : "近年、動画データに対してさまざまな要約手法が提案されてきた。しかし、その多くは「長い動画を短い動画にする」というアプローチにとどまっている。"}
               </p>
               <p>{en
-                ? "In response, this study focuses on vignette illustrations, which are still-image illustrations that refine and visually express the narrative content of entertainment media, such as animated works or games. If video content can be transformed into vignette illustrations, it becomes possible to retain core visual information while achieving a significantly higher compression rate than conventional techniques."
-                : "本研究では、ヴィネットイラストに着目する。ヴィネットイラストとは、アニメ作品やゲームなどのエンターテインメントメディアの物語内容を精緻に抽出し、視覚的に表現する静止画イラストである。もし動画コンテンツをヴィネットイラストに変換できれば、主要な視覚情報を保持しつつ、従来手法よりも大幅に高い圧縮率を実現できる可能性がある。"}
+                ? "What if we could convert a video into a single still image? If the key information could be captured in one image while preserving the content and atmosphere of the video, one could grasp the essence of the video at a glance."
+                : "では、動画を一枚の静止画に変換するとしたらどうだろうか？重要な情報を保持したまま一枚の画像にまとめることができれば、動画の内容や世界観を瞬時に把握できるのではないだろうか。"}
+              </p>
+              <p>{en
+                ? "This is where vignette illustrations come in. A vignette illustration is a visual expression format used in anime, games, and similar media, condensing the key elements of a video into a single diorama-like image."
+                : "そこで本研究では、ヴィネットイラストに着目する。ヴィネットイラストとは、アニメやゲームなどで用いられる表現形式で、動画内の主要な要素をジオラマのように一枚の絵の中に凝縮して視覚的に表現したものである。"}
               </p>
               <figure className="my-6">
                 <img
@@ -121,22 +155,63 @@ export default function ProjectContent({ slug }: { slug: string }) {
                 </figcaption>
               </figure>
               <p>{en
-                ? "To this end, we propose the Video Image Generative Network, Transformed & Expanded (VigNette), a system that generates vignette illustrations from videos, supporting both semiautomated generation that reflects user preferences and automated generation without user input."
-                : "そこで本研究では、動画からヴィネットイラストを生成するシステムとして、Video Image Generative Network, Transformed & Expanded（VigNette）を提案する。本システムは、ユーザの好みを反映した半自動生成と、ユーザ入力なしでの自動生成の両方をサポートする。"}
+                ? "We propose Video Image Generative Network, Transformed & Expanded (VigNette), a system that generates vignette illustrations from video. The system offers two modes:"
+                : "本研究では、動画からヴィネットイラストを生成するシステム Video Image Generative Network, Transformed & Expanded（VigNette） を提案する。本システムは以下の2つのモードを備えている。"}
+              </p>
+              <ul className="list-disc list-inside space-y-1 pl-1">
+                <li>{en
+                  ? "Semiautomated generation mode: generates vignette illustrations reflecting user preferences"
+                  : "半自動生成モード：ユーザの好みを反映しながらヴィネットイラストを生成する"}
+                </li>
+                <li>{en
+                  ? "Automated generation mode: AI generates vignette illustrations automatically without user input"
+                  : "自動生成モード：ユーザの入力なしに、AIが自動的にヴィネットイラストを生成する"}
+                </li>
+              </ul>
+              <p>{en
+                ? "In semiautomated mode, users can generate their ideal vignette illustration by selecting just two frames. Through a dedicated UI, the user selects one character frame — showing the main character — and one stage frame — showing the background and setting — and the illustration is generated intuitively from those choices."
+                : "半自動生成モードでは、たった2枚のフレームを選ぶだけで、思い描いたヴィネットイラストを生成できる。専用のUIから、主要登場人物が映るキャラクタフレームと、背景・舞台が映るステージフレームをそれぞれ1枚ずつ選択するだけで、直感的に自分好みのイラストを作成できる。"}
+              </p>
+              <div className="my-6 space-y-6">
+                {[
+                  { src: "p1_d3_ch_ui.png",        captionJa: "(a) キャラクタフレーム選択画面（キャラクター領域を赤枠で表示）", captionEn: "(a) Character frame selection (character region highlighted in red)" },
+                  { src: "p1_d3_st_ui.png",         captionJa: "(b) ステージフレーム選択画面",  captionEn: "(b) Stage frame selection" },
+                  { src: "p1_d3_selection_ui.png",  captionJa: "(c) 確認画面",                  captionEn: "(c) Confirmation screen" },
+                ].map(({ src, captionJa, captionEn }) => (
+                  <figure key={src}>
+                    <img src={`${bp}/${src}`} alt={en ? captionEn : captionJa} className="w-full h-auto" />
+                    <figcaption className="text-center text-xs text-gray-400 mt-2 leading-[1.6]">
+                      {en ? captionEn : captionJa}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+              <p>{en
+                ? "Below are examples of vignette illustrations generated by VigNette. Outputs A–E are semiautomated results using Character Frames A–E and Stage Frames A–E respectively. Output X (red background) is the automated result, generated from Character X and Stage X — a composite of three representative stage frames."
+                : "VigNetteによって生成されたヴィネットイラストの例が以下である。Output A〜EはそれぞれキャラクタフレームA〜EとステージフレームA〜Eを使用した半自動生成の結果、赤背景のOutput Xは自動生成の結果を示す。Output Xは、キャラクタXと3枚の代表ステージフレームを統合したステージXから生成される。"}
               </p>
               <figure className="my-6">
                 <img
-                  src={`${bp}/p1_d2_vignette_flamework.png`}
-                  alt={en ? "VigNette processing framework" : "VigNette の処理フレームワーク"}
+                  src={`${bp}/p1_d4_frames.png`}
+                  alt={en ? "Frame images from Plants & Planets [1]" : "Plants & Planets [1] のフレーム画像"}
                   className="w-full h-auto"
                 />
                 <figcaption className="text-center text-xs text-gray-400 mt-2">
-                  {en ? "VigNette processing framework" : "VigNette の処理フレームワーク"}
+                  {en ? "Frame images from Plants & Planets [1]" : "Plants & Planets [1] のフレーム画像"}
                 </figcaption>
               </figure>
-              <p>{en
-                ? "In VigNette, first, frames showing the full body of a character and frames showing the stage (i.e., everything except the characters) are extracted from the input video. These are defined as candidate character frames and candidate stage frames, respectively. The pipeline then splits into two branches. In the semiautomated process, the user manually selects one candidate character frame and one candidate stage frame. These are called the representative character frame and representative stage frame, and a stage caption is generated for the selected stage. In the automated process, VigNette automatically selects both the representative frames and the stage caption based on a predefined algorithm. Finally, VigNette generates two materials: the character material, defined as the extracted character region, and the stage material, defined as the extracted stage region. These are composited to produce the final vignette illustration."
-                : "VigNetteでは，まず、入力動画からキャラクタ全身が写っているフレームと、ステージ（つまりキャラクタ以外のすべて）が写っているフレームを抽出します。それぞれを候補キャラクタフレームと候補ステージフレームと定義します。その後、パイプラインは二つの分岐に分かれます。半自動プロセスでは、ユーザが手動で候補キャラクタフレームの中から1枚、候補ステージフレームの中から1枚を選択します。これらをそれぞれ代表キャラクタフレーム、代表ステージフレームと呼び、選択されたステージに対してステージキャプションが生成されます。自動プロセスでは、VigNetteが事前に定められたアルゴリズムに基づき、代表フレームとステージキャプションの両方を自動的に選択します。最後に、VigNetteは二つの素材を生成します。キャラクタ素材は抽出されたキャラクタ領域、ステージ素材は抽出されたステージ領域として定義されます。これらを合成することで最終的なヴィネットイラストが生成されます。"}
+              <figure className="my-6">
+                <img
+                  src={`${bp}/p1_d4_outputs.png`}
+                  alt={en ? "Generation results using Plants & Planets [1] as input" : "Plants & Planets [1] を入力とした場合の生成結果"}
+                  className="w-full h-auto"
+                />
+                <figcaption className="text-center text-xs text-gray-400 mt-2">
+                  {en ? "Generation results using Plants & Planets [1] as input" : "Plants & Planets [1] を入力とした場合の生成結果"}
+                </figcaption>
+              </figure>
+              <p>
+                [1] Super Furball, Plants &amp; Planets, 2025, [Online]. Available: <a href="https://www.youtube.com/watch?v=r9C-p8F5WNs" target="_blank" rel="noopener noreferrer" className="hover:underline">https://www.youtube.com/watch?v=r9C-p8F5WNs</a>.
               </p>
             </div>
           </div>
@@ -165,7 +240,7 @@ export default function ProjectContent({ slug }: { slug: string }) {
             <ul className="space-y-3 text-xs min-[480px]:text-sm leading-[1.85]" style={{ fontFamily: "var(--font-noto-serif-jp), serif", fontWeight: 400 }}>
               {[
                 { period: "2024–2029", label: en ? "JST Adopting Sustainable Partnerships for Innovative Research Ecosystem (ASPIRE), No. JPMJAP2401" : "JST 先端国際共同研究推進事業（ASPIRE），No. JPMJAP2401", url: "https://projectdb.jst.go.jp/grant/JST-PROJECT-24021287/" },
-                { period: "2023–2026", label: en ? "Grant-in-Aid for Challenging Research (Exploratory) \u201cAutomatic generation of vignette illustrations\u201d, No. 23K18468" : "挑戦的研究（萌芽）「ヴィネットイラストの自動生成」，No. 23K18468", url: "https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-23K18468/" },
+                { period: "2023–2026", label: en ? "Grant-in-Aid for Challenging Research (Exploratory), No. 23K18468" : "挑戦的研究（萌芽），No. 23K18468", url: "https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-23K18468/" },
                 { period: "2023", label: en ? "KLL Master's Program Research Grant 2023" : "KLL 前期博士課程研究助成金 2023" },
                 { period: "2023–2024", label: en ? "JST Advanced International Collaborative Research Program (AdCORP), No. JPMJKB2302" : "JST 先進国際共同研究プログラム（AdCORP），No. JPMJKB2302", url: "https://projectdb.jst.go.jp/grant/JST-PROJECT-23808817/", ended: true },
                 { period: "2019–2023", label: en ? "Grant-in-Aid for Challenging Research (Pioneering), No. 20K20481" : "挑戦的研究（開拓），No. 20K20481", url: "https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-20K20481/", ended: true },
