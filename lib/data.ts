@@ -177,15 +177,6 @@ export const researches: Research[] = [
     keywords: ["3D Generation", "Generative AI", "Personal Fabrication", "Human-Computer Interaction", "Tangible Computing"],
     hasPage: true,
   },
-  {
-    slug: "project-3",
-    title: "準備中",
-    titleEn: "Coming Soon",
-    description: "準備中です．",
-    descriptionEn: "Coming soon.",
-    keywords: [],
-    // image: "/research/project3.jpg",
-  },
 ];
 
 export type CareerItem = {
