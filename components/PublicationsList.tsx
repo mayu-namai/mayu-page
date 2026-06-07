@@ -88,20 +88,30 @@ export function PublicationEntry({ pub, index, en }: { pub: Publication; index: 
         {title}
         {q[1]},{" "}
         {(() => {
-          if (pub.type !== "journal") return citation;
+          const linkifyDoi = (text: string) => {
+            if (!pub.doi) return text;
+            const doiLabel = `DOI: ${pub.doi}`;
+            const idx = text.indexOf(doiLabel);
+            if (idx === -1) return text;
+            return <>
+              {text.slice(0, idx)}
+              <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" className="hover:underline">{doiLabel}</a>
+              {text.slice(idx + doiLabel.length)}
+            </>;
+          };
+          if (pub.type !== "journal") return linkifyDoi(citation);
           const sep = useEn ? "," : "，";
           const idx = citation.indexOf(sep);
-          if (idx === -1) return citation;
-          return <><em>{citation.slice(0, idx)}</em>{citation.slice(idx)}</>;
+          if (idx === -1) return linkifyDoi(citation);
+          return <><em>{citation.slice(0, idx)}</em>{linkifyDoi(citation.slice(idx))}</>;
         })()}
         {pub.note && (
           pub.noteIsAward
             ? <span className="ml-2 inline-block text-xs font-medium text-[#CB959F]" title={pub.note}>★ Award</span>
             : <span className="ml-2 inline-block text-[10px] min-[480px]:text-xs font-medium px-2 py-0.5 border border-gray-300 text-gray-500">{pub.note}</span>
         )}
-        {(pub.doi || pub.arxiv || pub.pdf || pub.link) && (
+        {(pub.arxiv || pub.pdf || pub.link) && (
           <span className="inline-flex gap-2 ml-2">
-            {pub.doi && <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" className="text-xs text-[#464043] hover:underline">DOI</a>}
             {pub.arxiv && <a href={pub.arxiv} target="_blank" rel="noopener noreferrer" className="text-xs text-[#464043] hover:underline">arXiv</a>}
             {pub.pdf && <a href={pub.pdf} target="_blank" rel="noopener noreferrer" className="text-xs text-[#464043] hover:underline">PDF</a>}
             {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer" className="text-xs text-[#CB959F] hover:underline">Web</a>}
