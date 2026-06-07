@@ -86,8 +86,8 @@ export default function ProjectContent({ slug }: { slug: string }) {
                 : "大切な瞬間を残そうと，私たちはたくさんの写真を撮る．でも，それらの記憶は何百枚ものファイルに散らばったまま，ほとんど見返されることがない．どの1枚も，記憶のほんの断片でしかない——ある写真には良い表情が，別の写真には好きな背景が，また別の写真には忘れたくない瞬間が写っている．"}
               </p>
               <p>{en
-                ? "Tangible Memories integrates multiple photos to generate a single 3D figure that captures the best of each — the right expression, the right pose, the right moment — condensed into one object you can hold in your hands."
-                : "Tangible Memoriesは，複数の写真を統合し，それぞれのいいとこどりをした3Dフィギュアを生成します．最良の表情，好きなポーズ，残しておきたい瞬間——すべての写真から記憶を凝縮して，手で触れられる一つのものに変えます．"}
+                ? "Tangible Memories integrates multiple photos to generate a 3D figure that captures the best of each — the right expression, the right pose, the right moment — condensing memories scattered across photos into a single, tangible form."
+                : "Tangible Memories は，複数の写真を統合し，それぞれのいいところを凝縮した3Dフィギュアを生成します．最良の表情，好きなポーズ，残しておきたい瞬間——写真に散らばった記憶を，手で触れられる一つの形にします．"}
               </p>
               <p>{en
                 ? "Rather than picking the \"best\" photo and discarding the rest, Tangible Memories brings all of them together — turning scattered digital memories into something you can see, touch, and keep."
