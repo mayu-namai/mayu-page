@@ -122,10 +122,21 @@ export default function CareerSection() {
           {(en || pub.isEnglish) ? ", " : "，"}{q[0]}<span className="text-gray-500">{title}</span>{q[1]},&nbsp;
           <span className="text-gray-500">
             {pub.type === "journal" ? (() => {
+              const linkifyDoi = (text: string) => {
+                if (!pub.doi) return text;
+                const doiLabel = `DOI: ${pub.doi}`;
+                const idx = text.indexOf(doiLabel);
+                if (idx === -1) return text;
+                return <>
+                  {text.slice(0, idx)}
+                  <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" className="hover:underline">{doiLabel}</a>
+                  {text.slice(idx + doiLabel.length)}
+                </>;
+              };
               const sep = en ? "," : "，";
               const i = citation.indexOf(sep);
-              if (i === -1) return citation;
-              return <><em>{citation.slice(0, i)}</em>{citation.slice(i)}</>;
+              if (i === -1) return linkifyDoi(citation);
+              return <><em>{citation.slice(0, i)}</em>{linkifyDoi(citation.slice(i))}</>;
             })() : citation}
           </span>
           {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer" className="ml-2 text-xs text-[#CB959F] hover:underline">Web</a>}
