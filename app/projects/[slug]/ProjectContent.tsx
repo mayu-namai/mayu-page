@@ -63,7 +63,7 @@ export default function ProjectContent({ slug }: { slug: string }) {
 
         <div className="flex items-center gap-6 text-xs min-[480px]:text-sm text-gray-500">
           {project.paper
-            ? <a href={project.paper} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors">Paper →</a>
+            ? <a href={project.paper} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors">Paper</a>
             : <span className="text-gray-300">Paper</span>
           }
         </div>
