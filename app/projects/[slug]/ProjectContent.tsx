@@ -171,6 +171,10 @@ export default function ProjectContent({ slug }: { slug: string }) {
                 ? "In semiautomated mode, users can generate their ideal vignette illustration by selecting just two frames. Through a dedicated UI, the user selects one character frame — showing the main character — and one stage frame — showing the background and setting — and the illustration is generated intuitively from those choices."
                 : "半自動生成モードでは、たった2枚のフレームを選ぶだけで、思い描いたヴィネットイラストを生成できる。専用のUIから、主要登場人物が映るキャラクタフレームと、背景・舞台が映るステージフレームをそれぞれ1枚ずつ選択するだけで、直観的に自分好みのヴィネットイラストを作成できる。"}
               </p>
+              <p>{en
+                ? "In automated mode, the system automatically selects one character frame showing the main character and multiple stage frames showing the background and setting, then generates a vignette illustration from them — no user input required."
+                : "自動生成モードでは、システムが主要登場人物が映るキャラクタフレームを1枚、背景・舞台が映るステージフレームを複数枚自動的に選択し、それらをもとにヴィネットイラストを生成する。ユーザの入力は一切不要である。"}
+              </p>
               <div className="my-6 space-y-6">
                 {[
                   { src: "p1_d3_ch_ui.png",        captionJa: "(a) キャラクタフレーム選択画面（キャラクタ領域を赤枠で表示）", captionEn: "(a) Character frame selection (character region highlighted in red)" },
