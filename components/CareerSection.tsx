@@ -422,7 +422,50 @@ export default function CareerSection() {
           {active === "skills" && (
             <div>
               <SectionHeading en={en} jaText="スキル" enText="Skills" />
-              <p className="text-gray-400">{en ? "Coming soon." : "準備中です．"}</p>
+              <div className="space-y-6">
+                {[
+                  {
+                    titleJa: "AI Agent Platform Development",
+                    titleEn: "AI Agent Platform Development",
+                    itemsJa: [
+                      "一般消費者向け汎用AIエージェントの開発",
+                      "PoC開発から商用機能の設計・実装を担当",
+                      "生成AIを活用した新機能の企画・プロトタイピング",
+                    ],
+                    itemsEn: [
+                      "Development of general-purpose AI agents for consumer use",
+                      "Design and implementation from PoC to commercial features",
+                      "Planning and prototyping of new features leveraging generative AI",
+                    ],
+                  },
+                  {
+                    titleJa: "Research",
+                    titleEn: "Research",
+                    itemsJa: [
+                      "動画から1枚の要約イラストを生成する手法を提案",
+                      "国際ジャーナル IEEE Transactions on Multimedia 採択",
+                      "HCI・Multimedia・Generative AI 領域における研究開発",
+                    ],
+                    itemsEn: [
+                      "Proposed a method for generating a single summary illustration from video",
+                      "Accepted in the international journal IEEE Transactions on Multimedia",
+                      "Research and development in HCI, Multimedia, and Generative AI",
+                    ],
+                  },
+                ].map(({ titleJa, titleEn, itemsJa, itemsEn }) => (
+                  <div key={titleEn}>
+                    <p className="font-medium text-[#464043] mb-2">{en ? titleEn : titleJa}</p>
+                    <ul className="space-y-1.5">
+                      {(en ? itemsEn : itemsJa).map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-gray-500">
+                          <span className="mt-[0.45em] w-1 h-1 rounded-full bg-gray-400 shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
