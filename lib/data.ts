@@ -162,6 +162,7 @@ export const researches: Research[] = [
       "Accepts an anime video as input, generates a vignette illustration that summarizes the content and reflects the world of the video. In semiautomatic mode, illustrations reflecting user preferences can be generated semiautomatically; in automatic mode, AI generates illustrations automatically.",
     keywords: ["Video Summarization", "Media Conversion", "Machine Learning", "World Perspective Visualization"],
     image: "/p1_vignette.png",
+    paper: "https://doi.org/10.1109/TMM.2026.3700384",
     hasPage: true,
   },
   // ── 以下、追加予定のプロジェクト ──────────────────────────
