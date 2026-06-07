@@ -153,7 +153,7 @@ export type Research = {
 export const researches: Research[] = [
   {
     slug: "vignette",
-    label: "#VigNette",
+    label: "# VigNette",
     title: "動画からのヴィネットイラスト生成",
     titleEn: "Generation of Vignette Illustrations from Video",
     description:
