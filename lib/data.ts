@@ -167,7 +167,7 @@ export const researches: Research[] = [
   // ── 以下、追加予定のプロジェクト ──────────────────────────
   {
     slug: "tangible-memories",
-    label: "#TangibleMemories",
+    label: "# Tangible Memories",
     title: "ユーザの思い出画像からの3Dフィギュア生成",
     titleEn: "Personalized 3D Figurine Generation from User Photos",
     description:
