@@ -173,7 +173,7 @@ export default function ProjectContent({ slug }: { slug: string }) {
               </p>
               <p>{en
                 ? "In automated mode, the system automatically selects one character frame showing the main character and multiple stage frames showing the background and setting, then generates a vignette illustration from them — no user input required."
-                : "自動生成モードでは、システムが主要登場人物が映るキャラクタフレームを1枚、背景・舞台が映るステージフレームを複数枚自動的に選択し、それらをもとにヴィネットイラストを生成する。ユーザの入力は一切不要である。"}
+                : "自動生成モードでは、VigNetteがキャラクタフレームを1枚、ステージフレームを複数枚自動的に選択し、それらをもとにヴィネットイラストを生成する。ユーザの入力は不要である。"}
               </p>
               <div className="my-6 space-y-6">
                 {[
