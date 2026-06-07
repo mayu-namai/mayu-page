@@ -101,7 +101,7 @@ export function PublicationEntry({ pub, index, en }: { pub: Publication; index: 
         )}
         {(pub.doi || pub.arxiv || pub.pdf || pub.link) && (
           <span className="inline-flex gap-2 ml-2">
-            {pub.doi && <a href={pub.doi} target="_blank" rel="noopener noreferrer" className="text-xs text-[#464043] hover:underline">DOI</a>}
+            {pub.doi && <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" className="text-xs text-[#464043] hover:underline">DOI</a>}
             {pub.arxiv && <a href={pub.arxiv} target="_blank" rel="noopener noreferrer" className="text-xs text-[#464043] hover:underline">arXiv</a>}
             {pub.pdf && <a href={pub.pdf} target="_blank" rel="noopener noreferrer" className="text-xs text-[#464043] hover:underline">PDF</a>}
             {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer" className="text-xs text-[#CB959F] hover:underline">Web</a>}
