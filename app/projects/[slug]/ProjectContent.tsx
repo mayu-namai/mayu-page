@@ -140,8 +140,8 @@ export default function ProjectContent({ slug }: { slug: string }) {
                 : "では、動画を一枚の静止画に変換するとしたらどうだろうか？重要な情報を保持したまま一枚の画像にまとめることができれば、動画の内容や世界観を瞬時に把握できるのではないだろうか。"}
               </p>
               <p>{en
-                ? "This is where vignette illustrations come in. A vignette illustration is a visual expression format used in anime, games, and similar media, condensing the key elements of a video into a single diorama-like image."
-                : "そこで本研究では、ヴィネットイラストに着目する。ヴィネットイラストとは、アニメやゲームなどで用いられる表現形式で、動画内の主要な要素をジオラマのように一枚の絵の中に凝縮して視覚的に表現したものである。"}
+                ? "In response, this study proposes converting video into vignette illustrations, realizing a new form of video summarization through a single image. A vignette illustration is a visual expression format used in anime, games, and similar media, condensing the key elements of a video into a single diorama-like image."
+                : "そこで本研究では、動画をヴィネットイラストへ変換することで、一枚の画像による新たな動画要約を実現する。ヴィネットイラストとは、アニメやゲームなどで用いられる表現形式で、動画内の主要な要素をジオラマのように一枚の絵の中に凝縮して視覚的に表現したものである。"}
               </p>
               <figure className="my-6">
                 <img
