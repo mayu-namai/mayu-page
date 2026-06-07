@@ -108,11 +108,12 @@ export default function ResearchSection() {
                 </div>
 
                 <div className="flex items-center text-gray-500 mt-auto pt-1" onClick={(e) => e.preventDefault()}>
-                  {r.paper
-                    ? <a href={r.paper} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors" onClick={(e) => e.stopPropagation()}>Paper</a>
-                    : <span className="text-gray-300">Paper</span>
-                  }
-                  <span className="mx-3 text-gray-300">|</span>
+                  {r.paper && (
+                    <>
+                      <a href={r.paper} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors" onClick={(e) => e.stopPropagation()}>Paper</a>
+                      <span className="mx-3 text-gray-300">|</span>
+                    </>
+                  )}
                   {r.project
                     ? <a href={r.project} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors" onClick={(e) => e.stopPropagation()}>Project</a>
                     : r.hasPage
