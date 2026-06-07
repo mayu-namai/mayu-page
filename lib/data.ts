@@ -50,6 +50,7 @@ export const publications: Publication[] = [
     type: "journal",
     citation: "IEEE Transactions on Multimedia, 2026.",
     note: "to appear",
+    doi: "10.1109/TMM.2026.3700384",
   },
   {
     authors: ["Mayu Namai", "Issei Fujishiro"],
