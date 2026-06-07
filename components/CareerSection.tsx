@@ -163,7 +163,7 @@ export default function CareerSection() {
         <p className="text-center text-[13px] min-[480px]:text-sm text-gray-500 mb-3">
           {en
             ? "Selected publications, presentations, awards, and research experience."
-            : "論文・発表・受賞・研究経験をまとめたものです．"}
+            : "論文・発表・受賞・研究経験をまとめています．"}
         </p>
         <div className="flex justify-end items-center gap-3">
           {pdfToast && (
