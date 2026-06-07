@@ -177,9 +177,9 @@ export default function ProjectContent({ slug }: { slug: string }) {
               </p>
               <div className="my-6 space-y-6">
                 {[
-                  { src: "p1_d3_ch_ui.png",        captionJa: "(a) キャラクタフレーム選択画面（キャラクタ領域を赤枠で表示）", captionEn: "(a) Character frame selection (character region highlighted in red)" },
-                  { src: "p1_d3_st_ui.png",         captionJa: "(b) ステージフレーム選択画面",  captionEn: "(b) Stage frame selection" },
-                  { src: "p1_d3_selection_ui.png",  captionJa: "(c) 確認画面",                  captionEn: "(c) Confirmation screen" },
+                  { src: "p1_d3_ch_ui.png",        captionJa: "キャラクタフレーム選択画面。キャラクタ領域は赤く表示される。", captionEn: "Character frame selection screen. The character region is highlighted in red." },
+                  { src: "p1_d3_st_ui.png",         captionJa: "ステージフレーム選択画面。",     captionEn: "Stage frame selection screen." },
+                  { src: "p1_d3_selection_ui.png",  captionJa: "確認画面。",                     captionEn: "Confirmation screen." },
                 ].map(({ src, captionJa, captionEn }) => (
                   <figure key={src}>
                     <img src={`${bp}/${src}`} alt={en ? captionEn : captionJa} className="w-full h-auto" />
