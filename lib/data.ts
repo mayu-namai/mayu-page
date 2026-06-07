@@ -59,7 +59,6 @@ export const publications: Publication[] = [
     type: "journal",
     citation: "IIEEJ Transactions on Image Electronics and Visual Computing, Vol. 12, No. 1, pp. 15–22, 2024. DOI: 10.11371/tievciieej.12.1_15. Presented at IEVC 2024 as an oral presentation, National Cheng Kung University, Tainan, Taiwan, March 12, 2024.",
     doi: "10.11371/tievciieej.12.1_15",
-    link: "https://www.iieej.org/journal/trans-on-ievc-vol-12-no-1/",
   },
   // ── 国際会議（査読あり）──────────────────────
   // ── 国内会議（査読あり）──────────────────────
