@@ -174,7 +174,7 @@ export const researches: Research[] = [
       "複数の思い出写真から重要な要素を凝縮し，そこから3Dフィギュアを生成するシステムです．写真に散らばった記憶の断片を，実際に手で触れられる形にします．",
     descriptionEn:
       "A system that condenses important elements from multiple memory photos and generates a 3D figure from them. Turns fragments of memories scattered across photos into something you can actually hold in your hands.",
-    keywords: ["3D Generation", "Generative AI", "Personal Fabrication", "Human-Computer Interaction", "Tangible Computing"],
+    keywords: ["3D Generation", "Generative AI", "Personal Fabrication", "Human-Computer Interaction", "Tangible Interface"],
     hasPage: true,
   },
 ];
