@@ -61,12 +61,11 @@ export default function ProjectContent({ slug }: { slug: string }) {
           </div>
         )}
 
-        <div className="flex items-center gap-6 text-xs min-[480px]:text-sm text-gray-500">
-          {project.paper
-            ? <a href={project.paper} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors underline underline-offset-4 decoration-gray-300">Paper</a>
-            : <span className="text-gray-300 underline underline-offset-4 decoration-gray-200">Paper</span>
-          }
-        </div>
+        {project.paper && (
+          <div className="flex items-center gap-6 text-xs min-[480px]:text-sm text-gray-500">
+            <a href={project.paper} target="_blank" rel="noopener noreferrer" className="hover:text-[#464043] transition-colors underline underline-offset-4 decoration-gray-300">Paper</a>
+          </div>
+        )}
 
         {slug === "tangible-memories" && (
           <>
