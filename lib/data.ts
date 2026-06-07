@@ -169,7 +169,7 @@ export const researches: Research[] = [
     slug: "tangible-memories",
     label: "#TangibleMemories",
     title: "ユーザの思い出画像からの3Dフィギュア生成",
-    titleEn: "Generating 3D Figures from User Memory Images",
+    titleEn: "Personalized 3D Figurine Generation from User Photos",
     description:
       "複数の思い出写真から重要な要素を凝縮し，そこから3Dフィギュアを生成するシステムです．写真に散らばった記憶の断片を，実際に手で触れられる形にします．",
     descriptionEn:
