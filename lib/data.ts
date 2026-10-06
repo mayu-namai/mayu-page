@@ -48,7 +48,7 @@ export const publications: Publication[] = [
     isEnglish: true,
     year: 2026,
     type: "journal",
-    citation: "IEEE Transactions on Multimedia, Early Access, pp. 1–10, Jun. 2026. DOI: 10.1109/TMM.2026.3700384.",
+    citation: "IEEE Transactions on Multimedia, Early Access, pp. 1–10, Jun. 2026. DOI: 10.1109/TMM.2026.3700384. Presented at ICIP 2026 as an oral presentation (journal paper presentation), Tampere Hall, Tampere, Finland, September 16, 2026.",
     doi: "10.1109/TMM.2026.3700384",
   },
   {
